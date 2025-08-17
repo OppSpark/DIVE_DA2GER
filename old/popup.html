@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>DIVE에서 다이겨</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; padding: 18px; width: 380px; }
+    h1 { font-size: 26px; margin: 0 0 12px; }
+    h2 { font-size: 16px; margin: 18px 0 8px; }
+    .row { margin: 8px 0; }
+    .label { font-weight: 700; display: block; margin-bottom: 6px; }
+    .value { min-height: 20px; white-space: pre-wrap; }
+    .btn { padding: 8px 12px; border:1px solid #ddd; border-radius:10px; cursor:pointer; background:#fff; }
+    .btn:active { transform: translateY(1px); }
+    textarea, input { width:100%; box-sizing: border-box; padding:8px; border:1px solid #ddd; border-radius:10px; }
+    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+    .muted { color:#888; font-size:12px; }
+    .right { display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
+    .pill { font-size:12px; padding:2px 8px; border-radius:999px; background:#f5f5f5; border:1px solid #eee; }
+  </style>
+</head>
+<body>
+  <h1>DIVE에서 다이겨</h1>
+  <div class="right">
+    <button id="refresh" class="btn">새로고침</button>
+  </div>
+
+  <!-- 스크레이프 결과 -->
+  <div class="row"><span class="label">제목</span><div id="title" class="value">-</div></div>
+  <div class="row"><span class="label">가격</span><div id="price" class="value">-</div></div>
+  <div class="row"><span class="label">주소/단지</span><div id="addr" class="value">-</div></div>
+  <div class="row grid-2">
+    <div><span class="label">면적</span><div id="area" class="value">-</div></div>
+    <div><span class="label">층</span><div id="floor" class="value">-</div></div>
+  </div>
+
+  <!-- 위험도 계산 입력 -->
+  <h2>위험도 계산 입력 <span id="autoTag" class="pill" title="스크랩한 내용으로 일부 자동 입력됩니다.">자동입력</span></h2>
+
+  <div class="row">
+    <span class="label">초기 LTV(%)</span>
+    <input id="ltv" type="text" placeholder="예: 70" readonly />
+  </div>
+
+  <div class="row grid-2">
+    <div>
+      <span class="label">보증 시작월</span>
+      <input id="guarStart" type="month" />
+    </div>
+    <div>
+      <span class="label">보증 완료월</span>
+      <input id="guarEnd" type="month" />
+    </div>
+  </div>
+
+  <div class="row">
+    <span class="label">주택가격(원)</span>
+    <input id="housePrice" type="text" placeholder="예: 550,000,000" />
+  </div>
+
+  <div class="row">
+    <span class="label">임대보증금액(원)</span>
+    <input id="deposit" type="text" placeholder="예: 100,000,000" />
+  </div>
+
+  <div class="row">
+    <span class="label">선순위(원)</span>
+    <input id="seniorDebt" type="text" placeholder="예: 0" />
+  </div>
+
+  <div class="row grid-2">
+    <div>
+      <span class="label">시도</span>
+      <input id="sido" type="text" placeholder="예: 서울" />
+    </div>
+    <div>
+      <span class="label">주택구분</span>
+      <input id="housingType" type="text" placeholder="예: 아파트" />
+    </div>
+  </div>
+
+  <div class="right">
+    <button id="calc" class="btn">위험도 계산</button>
+  </div>
+
+  <h2>JSON</h2>
+  <textarea id="json" readonly></textarea>
+  <div class="right">
+    <button id="copy" class="btn">JSON 복사</button>
+  </div>
+  <div class="muted">※ 편의 기능용(저장·수집 없음). 초기 LTV는 ‘매매가격의 70%’ 가정.</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

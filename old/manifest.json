@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Naver RE Helper",
+  "version": "1.0.0",
+  "description": "네이버 부동산 상세 페이지에서 제목/가격/주소/면적/층 정보를 추출해 팝업에 표시합니다.",
+  "action": {
+    "default_title": "Naver RE Helper",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": [
+    "https://new.land.naver.com/*",
+    "https://land.naver.com/*",
+    "https://m.land.naver.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://new.land.naver.com/*",
+        "https://land.naver.com/*",
+        "https://m.land.naver.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
