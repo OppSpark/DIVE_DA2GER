@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>전세 리스크 지도 POC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="map"></div>
+
+  <div class="legend">
+    <div class="row"><span class="dot dot-low"></span>낮음(0~29)</div>
+    <div class="row"><span class="dot dot-mid"></span>보통(30~59)</div>
+    <div class="row"><span class="dot dot-high"></span>높음(60~100)</div>
+  </div>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- App JS -->
+  <script src="./app.js"></script>
+</body>
+</html>
