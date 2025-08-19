@@ -1,66 +1,35 @@
 // ====== 지도 기본 ======
-const map = L.map('map').setView([37.5665, 126.9780], 12); // 서울 중심
+const map = L.map('map').setView([35.1796, 129.0756], 12); // 부산 중심
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19, attribution: '&copy; OpenStreetMap'
 }).addTo(map);
 
-// ====== 유틸 ======
-const rnd = (a, b) => Math.random() * (b - a) + a;
+// ====== 전역 변수 및 UI 요소 ======
+const sidebar = document.getElementById('sidebar');
+const infoPanel = document.getElementById('info-panel');
+const placeholder = document.querySelector('.placeholder');
+let selectedMarker = null;
+
+// ====== 유틸 함수 ======
 const clamp = (x, min = 0, max = 1) => Math.max(min, Math.min(max, x));
-const fmtEok = v => `${(+v).toFixed(1)}억`;
 const colorBy = level => level === '높음' ? 'red' : (level === '보통' ? 'orange' : 'green');
-
-function ymNow() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+// 숫자를 억/만 단위로 변환
+function formatPrice(priceInWon) {
+  if (!priceInWon || isNaN(priceInWon)) return '정보 없음';
+  const eok = Math.floor(priceInWon / 100000000);
+  const man = Math.floor((priceInWon % 100000000) / 10000);
+  let result = '';
+  if (eok > 0) result += `${eok}억 `;
+  if (man > 0) result += `${man.toLocaleString()}만원`;
+  return result || '0원';
 }
-function ymAdd(ym, add) { // add개월 더하기
-  const [y, m] = ym.split('-').map(Number);
-  const base = new Date(y, m - 1, 1);
-  base.setMonth(base.getMonth() + add);
-  return `${base.getFullYear()}-${String(base.getMonth() + 1).padStart(2, '0')}`;
-}
-
-// YYYY-MM → 월수 차이(유효성 포함, 포함월 방식)
-function monthsBetween(ym1, ym2) {
-  if (!ym1 || !ym2) return 0;
-  const [y1, m1] = ym1.split('-').map(Number);
-  const [y2, m2] = ym2.split('-').map(Number);
-  if (!Number.isInteger(y1) || !Number.isInteger(m1) || !Number.isInteger(y2) || !Number.isInteger(m2)) return 0;
-  const a = y1 * 12 + (m1 - 1);
-  const b = y2 * 12 + (m2 - 1);
-  return Math.max(0, b - a + 1); // 포함월: 시작과 종료 둘 다 포함
-}
-
-// ====== 더미 데이터 생성 ======
-const SIDO = ["서울","경기","인천","부산","대구","광주","대전","울산","세종","강원","충북","충남","전북","전남","경북","경남","제주"];
-const TYPES = ["아파트","다세대","단독주택","오피스텔"];
-
-function genBuilding(id) {
-  const lat = rnd(37.45, 37.65);
-  const lng = rnd(126.80, 127.10);
-  const trade = +(rnd(3, 18).toFixed(1));                  // 매매가 3~18억
-  const jeonse = +(rnd(trade * 0.5, trade * 0.9).toFixed(1)); // 전세 50~90%
-  const ltv = +(rnd(0.4, 0.8).toFixed(2));                 // 초기 LTV 40~80%
-  return {
-    id, lat, lng,
-    sido: SIDO[Math.floor(rnd(0, SIDO.length))],
-    type: TYPES[Math.floor(rnd(0, TYPES.length))],
-    trade_price_m: trade,   // 주택가액(억)
-    deposit_m: jeonse,      // 임대보증금(억)
-    initial_ltv: ltv        // 초기 LTV(0~1)
-  };
-}
-const buildings = Array.from({ length: 500 }, (_, i) => genBuilding(`BLDG_${i + 1}`));
 
 // ====== 위험도 계산식 ======
-// 점수 = 40*LTV + 30*전세비율 + 20*선순위비율 + 10*보증기간리스크
-// - 보증기간리스크 = 1 - clamp(보증개월/36, 0, 1)
 function calcRisk(b, senior_m, startYM, endYM) {
   const LTV = clamp(b.initial_ltv, 0, 1);
   const JR = clamp(b.deposit_m / b.trade_price_m, 0, 1);
   const SR = clamp((senior_m || 0) / b.trade_price_m, 0, 1);
-  const months = monthsBetween(startYM, endYM);
+  const months = monthsBetween(ymNow(), endYM); // 보증 시작은 현재로 고정
   const periodRisk = 1 - clamp(months / 36, 0, 1);
 
   const score = Math.round(40 * LTV + 30 * JR + 20 * SR + 10 * periodRisk);
@@ -69,94 +38,138 @@ function calcRisk(b, senior_m, startYM, endYM) {
   if (score >= 60) level = '높음';
   else if (score >= 30) level = '보통';
 
-  return {
-    score, level, months,
-    LTV: Math.round(LTV * 100),
-    JR: Math.round(JR * 100),
-    SR: Math.round(SR * 100)
-  };
+  return { score, level };
 }
 
-// ====== 마커 렌더링 ======
-buildings.forEach(b => {
-  const marker = L.circleMarker([b.lat, b.lng], { radius: 6, color: '#777', fillOpacity: 0.85 }).addTo(map);
+function monthsBetween(ym1, ym2) {
+    if (!ym1 || !ym2) return 0;
+    const [y1, m1] = ym1.split('-').map(Number);
+    const [y2, m2] = ym2.split('-').map(Number);
+    const a = y1 * 12 + m1;
+    const b = y2 * 12 + m2;
+    return Math.max(0, b - a + 1);
+}
 
-  function popupHTML(res) {
-    const line1 = `<b>${b.type}</b> · ${b.sido}<br/>주택가액 ${fmtEok(b.trade_price_m)} · 전세가 ${fmtEok(b.deposit_m)} · 초기 LTV ${Math.round(b.initial_ltv * 100)}%`;
-    const inputs = `
-      <div style="margin-top:6px;display:grid;gap:6px">
-        <label>선순위 금액(억)
-          <input id="senior-${b.id}" type="number" step="0.1" min="0" style="width:100px;margin-left:6px">
-        </label>
-        <div style="display:flex;gap:10px;align-items:center">
-          <label>보증 시작
-            <input id="start-${b.id}" type="month" style="margin-left:6px">
-          </label>
-          <label>보증 완료
-            <input id="end-${b.id}" type="month" style="margin-left:6px">
-          </label>
-        </div>
-        <button id="go-${b.id}">위험도 계산</button>
-      </div>
-    `;
-    const out = res ? `
-      <div class="risk" id="out-${b.id}" style="margin-top:8px">
-        <b>점수 ${res.score} / 100</b> · <span style="color:${colorBy(res.level)}">${res.level}</span><br/>
-        LTV ${res.LTV}% · 전세비율 ${res.JR}% · 선순위비율 ${res.SR}% · 보증기간 ${res.months}개월
-      </div>`
-      : `<div class="risk" id="out-${b.id}" style="margin-top:8px;color:#888">※ 값을 입력하고 ‘위험도 계산’을 눌러주세요</div>`;
-    return `<div style="min-width:280px">${line1}<hr/>${inputs}${out}</div>`;
-  }
+function ymNow() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+}
 
-  marker.bindPopup(popupHTML(null));
+// ====== 사이드바 업데이트 함수 ======
+function updateSidebar(b) {
+  placeholder.style.display = 'none';
+  infoPanel.innerHTML = `
+    <h3>${b.name || '정보 없음'}</h3>
+    <p class="address">${b.full_address}</p>
+    
+    <div class="details">
+      <p>주택 유형: <span>${b.type}</span></p>
+      <p>매매가: <span>${formatPrice(b.trade_price_won)}</span></p>
+      <p>전세 보증금: <span>${formatPrice(b.deposit_won)}</span></p>
+      <p>공시지가: <span>${formatPrice(b.gongsi_price_won)}</span></p>
+    </div>
+    
+    <div class="risk-calculator">
+      <label for="senior-input">선순위 채권 금액 (만원)</label>
+      <input type="number" id="senior-input" placeholder="예: 5000">
 
-  marker.on('popupopen', () => {
-    const seniorEl = document.getElementById(`senior-${b.id}`);
-    const startEl = document.getElementById(`start-${b.id}`);
-    const endEl = document.getElementById(`end-${b.id}`);
-    const btn = document.getElementById(`go-${b.id}`);
-    const outEl = document.getElementById(`out-${b.id}`);
+      <label for="end-date-input">보증 만료일</label>
+      <input type="month" id="end-date-input">
+      
+      <button id="calc-btn">위험도 계산</button>
+      
+      <div class="risk-result" id="risk-output" style="display:none;"></div>
+    </div>
+  `;
 
-    // 기본값 자동 입력(처음 열었을 때만)
-    if (!startEl.value) {
-      startEl.value = ymNow();
-      endEl.value = ymAdd(startEl.value, 24); // +24개월
+  // 위험도 계산 버튼 이벤트
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const seniorMan = parseFloat(document.getElementById('senior-input').value) || 0;
+    const endYM = document.getElementById('end-date-input').value;
+    
+    if (!endYM) {
+        alert('보증 만료일을 선택해주세요.');
+        return;
     }
+    
+    const senior_m = seniorMan / 10000; // 만원 -> 억
+    const res = calcRisk(b, senior_m, ymNow(), endYM);
+    
+    const outputEl = document.getElementById('risk-output');
+    outputEl.style.display = 'block';
+    outputEl.innerHTML = `
+      <b>위험도 점수: ${res.score} / 100</b>
+      <p>위험 수준: <span class="level-${res.level === '높음' ? 'high' : (res.level === '보통' ? 'mid' : 'low')}">${res.level}</span></p>
+    `;
 
-    // Enter 키로 계산
-    [seniorEl, startEl, endEl].forEach(el => {
-      el.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') btn.click();
-      });
-    });
-
-    btn.onclick = () => {
-      const senior = parseFloat(seniorEl.value || '0');
-      const startYM = startEl.value;
-      const endYM = endEl.value;
-
-      // 유효성 체크
-      if (!startYM || !endYM) {
-        outEl.style.color = 'crimson';
-        outEl.innerText = '보증 시작/완료 월을 입력하세요.';
-        return;
-      }
-      const m = monthsBetween(startYM, endYM);
-      if (m <= 0) {
-        outEl.style.color = 'crimson';
-        outEl.innerText = '보증 완료월이 시작월보다 빠릅니다.';
-        return;
-      }
-
-      // 계산
-      const res = calcRisk(b, senior, startYM, endYM);
-      marker.setStyle({ color: colorBy(res.level) });
-
-      // 결과만 업데이트
-      outEl.style.color = '';
-      outEl.innerHTML =
-        `<b>점수 ${res.score} / 100</b> · <span style="color:${colorBy(res.level)}">${res.level}</span><br/>
-         LTV ${res.LTV}% · 전세비율 ${res.JR}% · 선순위비율 ${res.SR}% · 보증기간 ${res.months}개월`;
-    };
+    // 마커 색상 변경
+    if (selectedMarker) {
+      selectedMarker.setStyle({ color: colorBy(res.level) });
+    }
   });
-});
+}
+
+// ====== 데이터 로딩 및 마커 생성 ======
+async function loadAndRenderData() {
+  try {
+    const response = await fetch('jeonse_data.json');
+    const data = await response.json();
+
+    const buildings = data.map(d => {
+      // ★★★★★ 여기 키 이름 수정 ★★★★★
+      const tradePrice = d['주택매매가격(원)'];
+      if (!d.위도 || !d.경도 || !tradePrice) return null;
+      
+      const deposit_won = parseFloat(String(d['보증금(만원)']).replace(/,/g, '')) * 10000;
+
+      return {
+        lat: d.위도,
+        lng: d.경도,
+        type: d.주택유형,
+        name: d.단지명,
+        full_address: d.전체주소,
+        trade_price_won: tradePrice,
+        deposit_won: deposit_won,
+        gongsi_price_won: d['공시지가(원)'], // ★★★★★ 여기 키 이름 수정 ★★★★★
+        // 계산에 필요한 '억' 단위 데이터
+        trade_price_m: tradePrice / 100000000,
+        deposit_m: deposit_won / 100000000,
+        initial_ltv: 0.5 // 50%로 가정
+      };
+    }).filter(b => b);
+
+    renderMarkers(buildings);
+
+  } catch (error) {
+    console.error('데이터 로딩 또는 처리 중 오류 발생:', error);
+    placeholder.textContent = '데이터를 불러오는 데 실패했습니다.';
+  }
+}
+
+// 마커를 지도에 그리는 함수
+function renderMarkers(buildings) {
+  buildings.forEach(b => {
+    const marker = L.circleMarker([b.lat, b.lng], { 
+        radius: 7, 
+        color: '#007bff', 
+        fillOpacity: 0.7 
+    }).addTo(map);
+
+    marker.on('click', () => {
+      // 이전에 선택된 마커 스타일 초기화
+      if (selectedMarker) {
+        selectedMarker.setStyle({ color: '#007bff', radius: 7 });
+      }
+      
+      // 현재 마커를 선택된 것으로 설정하고 스타일 변경
+      selectedMarker = marker;
+      marker.setStyle({ color: 'red', radius: 10 });
+      
+      // 사이드바 내용 업데이트
+      updateSidebar(b);
+    });
+  });
+}
+
+// 앱 실행
+loadAndRenderData();

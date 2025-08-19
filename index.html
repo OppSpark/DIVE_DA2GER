@@ -2,25 +2,29 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>전세 리스크 지도 POC</title>
+  <title>전세 리스크 지도</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-  <!-- App CSS -->
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <div id="map"></div>
 
-  <div class="legend">
-    <div class="row"><span class="dot dot-low"></span>낮음(0~29)</div>
-    <div class="row"><span class="dot dot-mid"></span>보통(30~59)</div>
-    <div class="row"><span class="dot dot-high"></span>높음(60~100)</div>
+  <div class="container">
+    
+    <div id="sidebar">
+      <div class="content">
+        <h2>부동산 정보</h2>
+        <p class="placeholder">지도에서 건물을 선택하세요.</p>
+        <div id="info-panel"></div>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
   </div>
 
-  <!-- Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <!-- App JS -->
-  <script src="./app.js"></script>
+  <script type="module" src="./app.js"></script>
+
 </body>
 </html>

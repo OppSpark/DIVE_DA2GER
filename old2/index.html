@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>전세 리스크 지도 (Kakao Maps)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Kakao Maps JS SDK (services = 지오코딩 포함) -->
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="map"></div>
+
+  <div class="legend">
+    <div class="row"><span class="dot dot-low"></span>낮음(0~29)</div>
+    <div class="row"><span class="dot dot-mid"></span>보통(30~59)</div>
+    <div class="row"><span class="dot dot-high"></span>높음(60~100)</div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
