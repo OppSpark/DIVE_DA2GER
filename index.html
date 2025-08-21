@@ -2,28 +2,27 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>전세 리스크 지도</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>전세 리스크 지도 (모바일)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-  <div class="container">
-    
-    <div id="sidebar">
-      <div class="content">
-        <h2>부동산 정보</h2>
-        <p class="placeholder">지도에서 건물을 선택하세요.</p>
-        <div id="info-panel"></div>
-      </div>
-    </div>
+  <div id="map"></div>
 
-    <div id="map"></div>
-
+  <div id="info-sheet">
+    <div class="handle"></div>
+    <div id="sheet-content"></div>
   </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  
   <script type="module" src="./app.js"></script>
 
 </body>
