@@ -82,11 +82,11 @@ html, body {
 /* 위험도 계산기 스타일 */
 .risk-calculator label {
   display: block;
-  margin: 12px 0 6px;
+  margin: 12px 0 6px ;
   font-weight: bold;
 }
 .risk-calculator input {
-  width: 100%;
+  width: 94%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
