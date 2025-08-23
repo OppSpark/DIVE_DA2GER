@@ -1,11 +1,47 @@
-/* 기본 스타일 */
+/* ====== 기본 스타일 ====== */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden; /* 스크롤 방지 */
+  overflow: hidden;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background-color: #f4f6f9;
+}
+
+#app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1001;
+}
+
+main.container {
+  display: flex;
+  flex-grow: 1;
+  height: calc(100% - 60px);
+}
+
+/* ====== 3단 패널 레이아웃 ====== */
+#left-panel {
+  width: 350px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+#map-panel {
+  flex-grow: 1;
 }
 
 #map {
@@ -13,84 +49,110 @@ html, body {
   height: 100%;
 }
 
-/* 바텀 시트(정보 패널) 스타일 */
-#info-sheet {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 90%; /* 최대 높이 */
-  max-height: 90%;
-  background: #fff;
-  border-radius: 16px 16px 0 0;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
-  transform: translateY(100%); /* 기본적으로 숨김 */
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
+#right-panel {
+  width: 400px;
+  border-left: 1px solid #ddd;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f9f9f9;
 }
 
-/* 바텀 시트 핸들 (상단 회색 바) */
-.handle {
-  width: 40px;
-  height: 5px;
-  background: #ccc;
-  border-radius: 2.5px;
-  margin: 10px auto;
-  cursor: grab;
+/* ====== 왼쪽 패널 (목록) 스타일 ====== */
+.search-area {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
 }
-
-#sheet-content {
-  padding: 0 20px 20px;
+.search-area input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+#list-container {
   overflow-y: auto;
   flex-grow: 1;
 }
-
-/* 바텀 시트가 활성화되었을 때의 스타일 */
-#info-sheet.visible {
-  transform: translateY(calc(100% - 200px)); /* 살짝 보이는 상태 */
+.list-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
-#info-sheet.expanded {
-  transform: translateY(10%); /* 거의 전체 화면 */
+.list-item:hover {
+  background-color: #f0f8ff;
+}
+.list-item.selected {
+  background-color: #e0f0ff;
+  border-left: 4px solid #007bff;
+  padding-left: 11px;
+}
+.list-item h4 {
+  margin: 0 0 5px 0;
+  font-size: 1em;
+  color: #333;
+}
+.list-item p {
+  margin: 0;
+  font-size: 0.85em;
+  color: #666;
 }
 
-/* 정보 패널 내부 콘텐츠 스타일 */
-#sheet-content h3 {
+/* ====== 오른쪽 패널 (상세정보) 스타일 ====== */
+#right-panel .placeholder {
+  color: #888;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+#right-panel h3 {
   margin-top: 0;
   margin-bottom: 8px;
   font-size: 1.5em;
 }
-#sheet-content .address {
+#right-panel .address {
   color: #666;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .details {
-  background: #f8f8f8;
+  background: #fff;
+  border: 1px solid #eee;
   border-radius: 8px;
   padding: 15px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 .details p {
   margin: 0 0 10px 0;
   display: flex;
   justify-content: space-between;
+  font-size: 0.95em;
 }
 .details p:last-child { margin-bottom: 0; }
 .details span { font-weight: bold; }
 
 /* 위험도 계산기 스타일 */
+.risk-calculator {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+.risk-calculator h4 {
+    margin-top: 0;
+}
 .risk-calculator label {
   display: block;
-  margin: 12px 0 6px ;
+  margin: 15px 0 6px ;
   font-weight: bold;
 }
 .risk-calculator input {
-  width: 94%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 .risk-calculator button {
   width: 100%;
@@ -101,16 +163,56 @@ html, body {
   color: white;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 16px;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+.risk-calculator button:hover {
+  background-color: #0056b3;
 }
 .risk-result {
   margin-top: 16px;
   padding: 15px;
-  background: #eef;
+  background: #e9f7fd;
+  border: 1px solid #b3e0f2;
   border-radius: 8px;
   text-align: center;
 }
 .risk-result b { font-size: 18px; }
-.level-high { color: red; font-weight: bold; }
+.level-높음 { color: red; font-weight: bold; }
 .level-보통 { color: orange; font-weight: bold; }
 .level-낮음 { color: green; font-weight: bold; }
+/* ====== 탭/필터/칩/범례 추가 스타일 ====== */
+.tabs { display:flex; gap:8px; margin-bottom:10px; }
+.tab {
+  flex:1; padding:10px; border:1px solid #ddd; background:#fff; cursor:pointer;
+  border-radius:8px; font-weight:600;
+}
+.tab.active { background:#e8f1ff; border-color:#99c2ff; color:#0b5bd3; }
+
+#filters { margin-top:10px; }
+#filters select { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; }
+.hidden { display:none; }
+
+.chip {
+  display:inline-block; padding:4px 8px; border-radius:999px; font-size:12px; font-weight:700;
+  background:#eef2f7; color:#333; border:1px solid #dfe6ee; margin-right:6px;
+}
+.chip.stage { color:#fff; border:none; }
+
+.card {
+  background:#fff; border:1px solid #eee; border-radius:10px; overflow:hidden; margin-bottom:16px;
+}
+.card .card-img { width:100%; height:160px; object-fit:cover; background:#f2f2f2; }
+.card .card-body { padding:12px 14px; }
+.card .meta { color:#666; font-size:13px; margin-top:6px; }
+
+.leaflet-control.legend {
+  background:#fff; border:1px solid #ddd; border-radius:10px; padding:10px 12px;
+  font:12px/1.2 system-ui; box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+.legend .row { display:flex; align-items:center; gap:8px; margin:4px 0; }
+.legend .dot { width:10px; height:10px; border-radius:50%; border:1px solid rgba(0,0,0,0.2); }
+
+.list-item .sub { color:#6a6a6a; font-size:12px; margin-top:4px; }
+.distance { font-weight:700; }
+

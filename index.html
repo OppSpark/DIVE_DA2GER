@@ -2,28 +2,58 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>전세 리스크 지도 (모바일)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  
+  <title>안심전세 PC 버전</title>
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-  
-  <link rel="stylesheet" href="./style.css" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="app-container">
+    <header>안심전세 PC 웹 서비스</header>
 
-  <div id="map"></div>
+    <main class="container">
+      <div id="left-panel">
+        <div class="search-area">
+          <div class="tabs">
+            <button id="tab-jeonse" class="tab active">전세</button>
+            <button id="tab-redev" class="tab">재개발</button>
+          </div>
 
-  <div id="info-sheet">
-    <div class="handle"></div>
-    <div id="sheet-content"></div>
+          <input type="text" id="search-box" placeholder="이름·단지·주소 검색...">
+
+          <div id="filters">
+            <select id="stage-filter" class="hidden">
+              <option value="">전체 단계</option>
+              <option value="준공">준공</option>
+              <option value="착공">착공</option>
+              <option value="관리처분">관리처분</option>
+              <option value="사업시행">사업시행</option>
+              <option value="조합설립">조합설립</option>
+              <option value="건축심의">건축심의/통합심의</option>
+              <option value="해제">해제</option>
+            </select>
+          </div>
+        </div>
+        <div id="list-container"></div>
+      </div>
+
+      <div id="map-panel">
+        <div id="map"></div>
+      </div>
+
+      <div id="right-panel">
+        <div class="placeholder">
+          <p>← 왼쪽 목록이나 지도에서<br>항목을 선택해주세요.</p>
+        </div>
+      </div>
+    </main>
   </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-  
-  <script type="module" src="./app.js"></script>
-
+  <script type="module" src="app.js"></script>
 </body>
 </html>
