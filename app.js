@@ -65,6 +65,28 @@ function haversine(lat1, lon1, lat2, lon2) {
   return 2*R*Math.asin(Math.sqrt(a));
 }
 
+// ====== API 유틸 ======
+function toYYYYMM(v) {
+  // v: 'YYYY-MM' -> number 202501
+  if (!v) return 0;
+  return +String(v).replace('-', '');
+}
+function extractSido(addr='') {
+  const first = String(addr).trim().split(/\s+/)[0] || '';
+  return first || '부산광역시';
+}
+function normalizeHouseType(t='') {
+  if (String(t).includes('오피스텔')) return '오피스텔';
+  if (String(t).includes('아파트')) return '아파트';
+  return t || '아파트';
+}
+function riskLevelFromScore(s) {
+  const x = Number(s) || 0;
+  if (x >= 0.66) return '높음';
+  if (x >= 0.33) return '보통';
+  return '낮음';
+}
+
 // ====== 위험도 계산(기존 로직 확장 유지) ======
 function calcRisk(b, senior_m, endYM) {
   const LTV = clamp(0.5, 0, 1); // 초기값(필요 시 교체)
@@ -118,7 +140,7 @@ async function loadData() {
   // 전세 데이터
   const jeonseRaw = await fetch('jeonse_data.json').then(r => r.json());
   jeonseData = jeonseRaw
-    .filter(d => d.위도 && d.경도 && d['주택매매가격(원)'])
+    .filter(d => d.위도 && d.경도)
     .map((d, i) => {
       const trade = d['주택매매가격(원)'];
       const deposit = d['보증금(원)'];
@@ -150,62 +172,49 @@ async function loadData() {
       lat: d.위도, lng: d.경도,
       name: d.name,
       stage: d.stage || '',
-      builder: d.builder || '-',
-      units: Number.isFinite(+d.units) ? +d.units : d.units,
+      builder: d.builder || '',
       address: d.address || '',
-      image_url: d.image_url || ''
+      units: d.units || 0,
     }));
 
   renderAll();
 }
 
-// ====== 마커/목록 렌더링 ======
-function clearSelection() {
-  if (selectedMarker) {
-    const originalColor = selectedMarker.options.originalColor || '#3b82f6';
-    selectedMarker.setStyle({ color: originalColor, fillColor: originalColor, radius: selectedMarker.options.kind==='redev'?9:7, fillOpacity: 0.7 });
-  }
-  selectedMarker = null;
-
-  if (impactCircle) {
-    map.removeLayer(impactCircle);
-    impactCircle = null;
-  }
-}
-
-function renderJeonseMarkers(list) {
+// ====== 렌더링 ======
+function renderAll() {
   jeonseMarkers.clearLayers();
-  markerById.jeonse.clear();
-
-  list.forEach(b => {
-    const color = '#3b82f6';
-    const m = L.circleMarker([b.lat, b.lng], {
-      radius: 7, color, fillColor: color, fillOpacity: 0.7
-    });
-    m.options.originalColor = color;
-    m.options.kind = 'jeonse';
-    m.bindTooltip(b.name || '전세');
-    m.on('click', () => selectJeonse(m, b));
-    jeonseMarkers.addLayer(m);
-    markerById.jeonse.set(b.id, m);
-  });
-}
-
-function renderRedevMarkers(list) {
   redevMarkers.clearLayers();
+  markerById.jeonse.clear();
   markerById.redev.clear();
 
-  list.forEach(r => {
-    const color = stageColor(r.stage);
-    const m = L.circleMarker([r.lat, r.lng], {
-      radius: 9, color, fillColor: color, fillOpacity: 0.85
+  const q = (searchBox.value || '').trim();
+  const stageSel = stageFilter.value;
+
+  // 전세 마커
+  jeonseData.forEach(b => {
+    if (q && !(b.name || '').includes(q) && !(b.full_address || '').includes(q)) return;
+
+    const marker = L.circleMarker([b.lat, b.lng], {
+      radius: 8, weight: 1, color: '#1d4ed8', fillColor: '#3b82f6', fillOpacity: 0.7
     });
-    m.options.originalColor = color;
-    m.options.kind = 'redev';
-    m.bindTooltip(`${r.name} (${r.stage || '-'})`);
-    m.on('click', () => selectRedev(m, r));
-    redevMarkers.addLayer(m);
-    markerById.redev.set(r.id, m);
+    marker.options.originalColor = '#3b82f6';
+    marker.on('click', () => selectJeonse(marker, b));
+    jeonseMarkers.addLayer(marker);
+    markerById.jeonse.set(b.id, marker);
+  });
+
+  // 재개발 마커
+  redevData.forEach(r => {
+    if (q && !(r.name || '').includes(q) && !(r.address || '').includes(q)) return;
+    if (stageSel !== 'ALL' && (r.stage || '') !== stageSel) return;
+
+    const marker = L.circleMarker([r.lat, r.lng], {
+      radius: 8, weight: 1, color: '#0f766e', fillColor: stageColor(r.stage), fillOpacity: 0.8
+    });
+    marker.options.originalColor = stageColor(r.stage);
+    marker.on('click', () => selectRedev(marker, r));
+    redevMarkers.addLayer(marker);
+    markerById.redev.set(r.id, marker);
   });
 }
 
@@ -247,42 +256,18 @@ function renderList(items) {
       });
     }
 
+    el.__id = item.id;
     leftPanel.appendChild(el);
   });
 }
 
-function renderAll() {
-  const q = (searchBox.value || '').trim();
-  let list = [];
-
-  if (currentTab === 'jeonse') {
-    list = jeonseData.filter(b => {
-      if (!q) return true;
-      const s = `${b.name||''} ${b.full_address||''} ${b.type||''}`.toLowerCase();
-      return s.includes(q.toLowerCase());
-    });
-    renderJeonseMarkers(list);
-  } else {
-    const stageVal = stageFilter.value || '';
-    list = redevData.filter(r => {
-      const stageOk = !stageVal || r.stage.includes(stageVal);
-      if (!q) return stageOk;
-      const s = `${r.name||''} ${r.address||''} ${r.stage||''} ${r.builder||''}`.toLowerCase();
-      return stageOk && s.includes(q.toLowerCase());
-    });
-    renderRedevMarkers(list);
-  }
-
-  renderList(list);
-}
-
-// ====== 선택 동작 ======
 function selectJeonse(marker, b) {
   clearSelection();
 
   selectedMarker = marker;
-  marker.setStyle({ color: 'red', fillColor: 'red', radius: 10, fillOpacity: 1 });
+  marker.setStyle({ color: '#111', fillColor: '#111', radius: 11, fillOpacity: 1 });
 
+  if (impactCircle) impactCircle.remove();
   impactCircle = L.circle([b.lat, b.lng], { radius: 600, color: '#2563eb', weight: 1, fillOpacity: 0.05 });
   impactCircle.addTo(map);
 
@@ -313,48 +298,9 @@ function highlightListItem(id) {
 
 const _origRenderList = renderList;
 renderList = function(items) {
-  leftPanel.innerHTML = '';
-  items.forEach(item => {
-    const el = document.createElement('div');
-    el.className = 'list-item';
-    el.__id = item.id;
-
-    if (currentTab === 'jeonse') {
-      el.innerHTML = `
-        <h4>${item.name || '정보 없음'}</h4>
-        <p>${item.full_address || ''}</p>
-        <p class="sub">매매가 <b>${formatPrice(item.trade_price_won)}</b> · 전세 <b>${formatPrice(item.deposit_won)}</b></p>
-      `;
-      el.addEventListener('click', () => {
-        const m = markerById.jeonse.get(item.id);
-        if (m) {
-          map.setView([item.lat, item.lng], 15);
-          selectJeonse(m, item);
-        }
-      });
-    } else {
-      const chipColor = stageColor(item.stage);
-      el.innerHTML = `
-        <h4>${item.name}</h4>
-        <p><span class="chip stage" style="background:${chipColor}">${item.stage || '-'}</span>
-           <span class="chip">${item.builder || '-'}</span>
-           ${item.units ? `<span class="chip">${item.units.toLocaleString()}세대</span>`:''}
-        </p>
-        <p class="sub">${item.address || ''}</p>
-      `;
-      el.addEventListener('click', () => {
-        const m = markerById.redev.get(item.id);
-        if (m) {
-          map.setView([item.lat, item.lng], 15);
-          selectRedev(m, item);
-        }
-      });
-    }
-    leftPanel.appendChild(el);
-  });
+  _origRenderList(items);
 };
 
-// ====== 우측 패널 ======
 function updateRightPanelJeonse(b) {
   const nearby = redevData
     .map(r => ({ r, dist: haversine(b.lat, b.lng, r.lat, r.lng) }))
@@ -438,28 +384,93 @@ function updateRightPanelJeonse(b) {
     updateDisplay();
   });
 
-  document.getElementById('calc-btn').addEventListener('click', () => {
-    const currentData = {
-        ...b,
-        trade_price_won: +document.getElementById('trade-price-input').value,
-        deposit_won: +document.getElementById('deposit-input').value,
-        trade_price_m: (+document.getElementById('trade-price-input').value) / 1e8,
-        deposit_m: (+document.getElementById('deposit-input').value) / 1e8,
+  document.getElementById('calc-btn').addEventListener('click', async () => {
+    // 폼 값 수집
+    const tradePriceWon = +document.getElementById('trade-price-input').value || 0;
+    const depositWon    = +document.getElementById('deposit-input').value || 0;
+
+    const seniorMan = parseFloat(document.getElementById('senior-input').value) || 0; // 만원 단위
+    const startYM   = document.getElementById('start-date-input').value;
+    const endYM     = document.getElementById('end-date-input').value;
+    if (!startYM || !endYM) return alert('보증 시작/만료월을 선택해주세요.');
+
+    const seniorWon = Math.round(seniorMan * 10000); // 만원 -> 원
+    const sido = extractSido(b.full_address || '');
+    const houseType = normalizeHouseType(b.type || '');
+
+    const payload = {
+      "보증시작월":  toYYYYMM(startYM),
+      "보증만료월":  toYYYYMM(endYM),
+      "주택가격":    tradePriceWon,
+      "임대보증금액": depositWon,
+      "선순위":      seniorWon,
+      "시도":        sido,
+      "주택구분":    houseType
     };
-    const seniorMan = parseFloat(document.getElementById('senior-input').value) || 0;
-    const endYM = document.getElementById('end-date-input').value;
-    if (!endYM) return alert('보증 만료일을 선택해주세요.');
-    const senior_m = seniorMan * 10000 / 100000000;
-    const res = calcRisk(currentData, senior_m, endYM);
 
     const outputEl = document.getElementById('risk-output');
     outputEl.style.display = 'block';
-    outputEl.innerHTML = `<b>위험도 점수: ${res.score} / 100</b><p>위험 수준: <span class="level-${res.level}">${res.level}</span></p>`;
+    outputEl.innerHTML = '분석 중입니다...';
 
-    if (selectedMarker) {
-      const newColor = colorByRisk(res.level);
-      selectedMarker.setStyle({ color: newColor, fillColor: newColor, fillOpacity: 0.9 });
-      selectedMarker.options.originalColor = newColor;
+    const doLocalFallback = (errMsg) => {
+      const currentData = {
+          ...b,
+          trade_price_won: tradePriceWon,
+          deposit_won: depositWon,
+          trade_price_m: tradePriceWon / 1e8,
+          deposit_m: depositWon / 1e8,
+      };
+      const senior_m = seniorWon / 1e8;
+      const res = calcRisk(currentData, senior_m, endYM);
+      outputEl.innerHTML = `
+        <div id="risk-result" style="background:#fff8f8;border:1px solid #ffd3d3">
+          <div style="font-weight:700;margin-bottom:6px">[임시 계산] 위험도 점수: ${res.score} / 100</div>
+          <div>위험 수준: <span class="level-${res.level}">${res.level}</span></div>
+          <div style="margin-top:10px;color:#c00">⚠ 서버 응답 오류로 임시 계산식을 사용했습니다.${errMsg ? `<br>${errMsg}` : ''}</div>
+        </div>
+      `;
+      if (selectedMarker) {
+        const newColor = colorByRisk(res.level);
+        selectedMarker.setStyle({ color: newColor, fillColor: newColor, fillOpacity: 0.9 });
+        selectedMarker.options.originalColor = newColor;
+      }
+    };
+
+    try {
+      if (!window.CONFIG || !window.CONFIG.PREDICT_URL) {
+        throw new Error('API 주소가 설정되지 않았습니다. (config.js 확인)');
+      }
+      const res = await fetch(window.CONFIG.PREDICT_URL, {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error(`API 오류: ${res.status}`);
+      const data = await res.json();
+      const score01 = typeof data.risk_score === 'number' ? data.risk_score : 0;
+      const level   = riskLevelFromScore(score01);
+      const score100 = Math.round(score01 * 100);
+
+      outputEl.innerHTML = `
+        <div id="risk-result" style="background:#f7fbff;border:1px solid #dceeff">
+          <div style="font-weight:700;margin-bottom:6px">위험도 점수: <span id="risk-score">${score100}</span> / 100</div>
+          <div style="margin-bottom:12px">위험 수준: <span class="level-${level}">${level}</span></div>
+          <div style="text-align:left;white-space:pre-wrap">${data.ai_explanation || ''}</div>
+        </div>
+      `;
+
+      if (selectedMarker) {
+        const color = colorByRisk(level);
+        selectedMarker.setStyle({ color, fillColor: color, fillOpacity: 0.9 });
+        selectedMarker.options.originalColor = color;
+      }
+    } catch (err) {
+      console.error(err);
+      doLocalFallback(err.message);
     }
   });
 }
@@ -468,26 +479,47 @@ function updateRightPanelRedev(r) {
   rightPanel.innerHTML = `
     <h3>${r.name}</h3>
     <p class="address">${r.address || ''}</p>
-
-    <div class="card">
-      <img class="card-img" src="${r.image_url || ''}" alt="" onerror="this.style.display='none'">
-      <div class="card-body">
-        <p>
-          <span class="chip stage" style="background:${stageColor(r.stage)}">${r.stage || '-'}</span>
-          <span class="chip">${r.builder || '-'}</span>
-          ${r.units ? `<span class="chip">${(r.units+'').replace(/\B(?=(\d{3})+(?!\d))/g, ',')}세대</span>`:''}
-        </p>
-        <p class="meta">위치: ${r.address || '-'}</p>
+    <div class="details">
+      <div class="info-item">
+        <label>단계</label>
+        <input class="readonly-input" value="${r.stage || '-'}" readonly />
+      </div>
+      <div class="info-item">
+        <label>시공</label>
+        <input class="readonly-input" value="${r.builder || '-'}" readonly />
+      </div>
+      <div class="info-item">
+        <label>세대수</label>
+        <input class="readonly-input" value="${r.units ? r.units.toLocaleString() + '세대' : '-'}" readonly />
       </div>
     </div>
   `;
 }
 
-// ====== 이벤트 ======
+function clearSelection() {
+  if (selectedMarker) {
+    selectedMarker.setStyle({ color: '#1d4ed8', fillColor: selectedMarker.options.originalColor || '#3b82f6', radius: 8, fillOpacity: 0.7 });
+    selectedMarker = null;
+  }
+  if (impactCircle) {
+    impactCircle.remove();
+    impactCircle = null;
+  }
+  rightPanel.innerHTML = `<p class="hint">왼쪽 목록 또는 지도의 마커를 선택하세요.</p>`;
+}
+
+function refreshListByTab() {
+  if (currentTab === 'jeonse') {
+    renderList(jeonseData);
+  } else {
+    renderList(redevData);
+  }
+}
+
+// ====== 검색/탭/필터 이벤트 ======
 searchBox.addEventListener('input', renderAll);
 
 tabJeonse.addEventListener('click', () => {
-  if (currentTab === 'jeonse') return;
   currentTab = 'jeonse';
   tabJeonse.classList.add('active'); tabRedev.classList.remove('active');
   stageFilter.classList.add('hidden');
@@ -496,7 +528,6 @@ tabJeonse.addEventListener('click', () => {
 });
 
 tabRedev.addEventListener('click', () => {
-  if (currentTab === 'redev') return;
   currentTab = 'redev';
   tabRedev.classList.add('active'); tabJeonse.classList.remove('active');
   stageFilter.classList.remove('hidden');
