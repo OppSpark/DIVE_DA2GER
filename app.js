@@ -257,7 +257,7 @@ function renderList(items) {
 
     if (currentTab === 'jeonse') {
       el.innerHTML = `
-        <h4>${item.name || '정보 없음'}</h4>
+        <h4>${item.name || '일반 주택'}</h4>
         <p>${item.full_address || ''}</p>
         <p class="sub">매매가 <b>${formatPrice(item.trade_price_won)}</b> · 전세 <b>${formatPrice(item.deposit_won)}</b></p>
       `;
