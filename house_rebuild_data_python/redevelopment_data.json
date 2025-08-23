@@ -1,0 +1,2102 @@
+[
+    {
+        "name": "반여1-1 재개발",
+        "address": "부산광역시 해운대구 반여로21, 2층(반여동)",
+        "stage": "해제",
+        "builder": "(주)kcc건설",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811070221146380.jpg",
+        "위도": 35.1947746463475,
+        "경도": 129.119334410978
+    },
+    {
+        "name": "반여1-2 재개발",
+        "address": "부산광역시 해운대구 반여로 66, 4층(반여동, 한화빌딩)",
+        "stage": "준공",
+        "builder": "SK건설",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811070246534440.jpg",
+        "위도": 35.1973291180152,
+        "경도": 129.123032048539
+    },
+    {
+        "name": "반여3 재건축",
+        "address": "부산광역시 해운대구 선수촌로 65-29, 4층",
+        "stage": "조합설립인가",
+        "builder": "DL이앤씨",
+        "units": "915",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812200448568240.jpg",
+        "위도": 35.1997768520687,
+        "경도": 129.117267484506
+    },
+    {
+        "name": "반여3-1 재건축",
+        "address": "부산광역시 해운대구 반여로 21, 경성빌딩 4층",
+        "stage": "사업시행계획인가",
+        "builder": "현대건설",
+        "units": "513",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202204200356096530.JPG",
+        "위도": 35.1947746463475,
+        "경도": 129.119334410978
+    },
+    {
+        "name": "반여4 재건축",
+        "address": "부산광역시 해운대구 삼어로91번길 120-21, 2층",
+        "stage": "관리처분계획",
+        "builder": "(주)DL이앤씨",
+        "units": "536",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202102011201365900.jpg",
+        "위도": 35.2104208349503,
+        "경도": 129.116776951305
+    },
+    {
+        "name": "범일2 재개발",
+        "address": "부산광역시 동구 범일일길 33",
+        "stage": "관리처분계획",
+        "builder": "롯데건설",
+        "units": "1456",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202303060158568110.jpg",
+        "위도": 35.1399873085793,
+        "경도": 129.058242687527
+    },
+    {
+        "name": "범일3 재개발",
+        "address": "부산광역시 동구 자성로141번길 11 (삼환오피스텔 703호)",
+        "stage": "착공",
+        "builder": "DL건설& DL이앤씨",
+        "units": "856",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811080645532170.jpg",
+        "위도": 35.1381089015114,
+        "경도": 129.065592161446
+    },
+    {
+        "name": "범일3-1 재개발",
+        "address": "부산광역시 동구 조방로26번길 11 (동양오피스텔 502호)",
+        "stage": "관리처분계획",
+        "builder": "우미건설",
+        "units": "368",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811080943021980.jpg",
+        "위도": 35.1399030999389,
+        "경도": 129.062917450834
+    },
+    {
+        "name": "범일동 가로주택정비",
+        "address": "부산시 동구 범일동 330-190번지 일원",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "754",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202311100330248540.jpg",
+        "위도": 35.1353959161673,
+        "경도": 129.063055686317
+    },
+    {
+        "name": "범일동 제일상가아파트 가로주택정비",
+        "address": "동구 범일동 830-44번지 일원",
+        "stage": "건축심의 및 통합심의",
+        "builder": "동원개발",
+        "units": "226",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1397584253277,
+        "경도": 129.060669544738
+    },
+    {
+        "name": "범천1-1 재개발",
+        "address": "범천동 850-1번지",
+        "stage": "착공",
+        "builder": "현대건설",
+        "units": "1323",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202010160411458340.jpg",
+        "위도": 35.1466967299908,
+        "경도": 129.061206012764
+    },
+    {
+        "name": "범천1-2 재개발",
+        "address": "범천동 851-1번지 일원",
+        "stage": "해제",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202102051239284280.PNG",
+        "위도": 35.146324927744,
+        "경도": 129.061925030677
+    },
+    {
+        "name": "범천4 재개발",
+        "address": "범천동 1269-15",
+        "stage": "사업시행계획인가",
+        "builder": "현대건설",
+        "units": "2370",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202506131031579780.jpg",
+        "위도": 35.1459603696195,
+        "경도": 129.052886995845
+    },
+    {
+        "name": "범천5 재개발",
+        "address": "부산광역시 부산진구 신암로 70, 2층(범천동)",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202406260256469990.jpg",
+        "위도": 35.1479318981126,
+        "경도": 129.054441297679
+    },
+    {
+        "name": "복산1 재개발",
+        "address": "동래구 칠산동246번지 일원",
+        "stage": "사업시행계획인가",
+        "builder": "GS건설",
+        "units": "4673",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201907300441106390.jpg",
+        "위도": 35.203250904947,
+        "경도": 129.088206785736
+    },
+    {
+        "name": "봉래동3가 137번지 일원 가로주택정비",
+        "address": "부산광역시 영도구 봉래동3가 137번지 일원",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "312",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.0945684007339,
+        "경도": 129.044770803475
+    },
+    {
+        "name": "부곡2 재개발",
+        "address": "가마실로 19, 2층",
+        "stage": "사업시행계획인가",
+        "builder": "GS건설",
+        "units": "1968",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812101106126640.jpg",
+        "위도": 35.2249486146348,
+        "경도": 129.091102022082
+    },
+    {
+        "name": "부곡3 가로주택정비",
+        "address": "서동로 5, 2층",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "209",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.9280825218264,
+        "경도": 126.955566973032
+    },
+    {
+        "name": "부곡동 812-1번지 일원 소규모재건축",
+        "address": "부곡동 812-12, 2층",
+        "stage": "조합설립인가",
+        "builder": "HJ중공업",
+        "units": "179",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.2201069094425,
+        "경도": 129.092489793743
+    },
+    {
+        "name": "부민2 재개발",
+        "address": "해돋이로269번길4, 이약국3층(아미동2가)",
+        "stage": "조합설립인가",
+        "builder": "미지정",
+        "units": "1042",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202003130129039210.jpg",
+        "위도": 35.1005602494829,
+        "경도": 129.016266553448
+    },
+    {
+        "name": "부민3 재개발",
+        "address": "부용로26번길 18, 1층(부용동2가)",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "752",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202302270118059220.png",
+        "위도": 35.1068202160335,
+        "경도": 129.017342488275
+    },
+    {
+        "name": "부암1 재개발",
+        "address": "부산진구 부암동 560번지 일원",
+        "stage": "준공",
+        "builder": "롯데건설",
+        "units": "2195",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202007060438473850.PNG",
+        "위도": 35.1720813407837,
+        "경도": 129.036946499925
+    },
+    {
+        "name": "부원아파트(소규모) 소규모재건축",
+        "address": "양정동 406-6번지 일원",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 37.6038045791629,
+        "경도": 127.197020972077
+    },
+    {
+        "name": "부전역 소규모재개발",
+        "address": "부산광역시 부산진구 새싹로 41-1, 2층(부전동)",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "324",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1611689367494,
+        "경도": 129.056027398265
+    },
+    {
+        "name": "분포목련아파트 가로주택정비",
+        "address": "부산광역시 남구 용호로 116, 2층(용호동)",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "355",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1221176029821,
+        "경도": 129.111948559821
+    },
+    {
+        "name": "사직 진성맨션블록 가로주택정비",
+        "address": "동래구 사직동 354-2번지 일원",
+        "stage": "조합해산",
+        "builder": "미정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.2004596296185,
+        "경도": 129.067368714842
+    },
+    {
+        "name": "사직1-5 재건축",
+        "address": "동래구 사직동 16-1번지 일원",
+        "stage": "사업시행계획인가",
+        "builder": "미정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812260135202580.png",
+        "위도": 35.2002999051016,
+        "경도": 129.059462827343
+    },
+    {
+        "name": "사직1-6 재건축",
+        "address": "동래구 사직동 630번지 일원",
+        "stage": "착공",
+        "builder": "현대건설",
+        "units": "1,090",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812260136580820.png",
+        "위도": 35.2021949196938,
+        "경도": 129.057021415252
+    },
+    {
+        "name": "사직4 재개발",
+        "address": "부산광역시 동래구 중앙대로 1275-1, 402호",
+        "stage": "조합설립인가",
+        "builder": "1",
+        "units": "4",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.2010521989981,
+        "경도": 129.077449558902
+    },
+    {
+        "name": "가야4 재개발",
+        "address": "부산광역시 부산진구 냉정로 266, 2층(가야동)",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202405070458395960.jpg",
+        "위도": 35.150876593412,
+        "경도": 129.028841639447
+    },
+    {
+        "name": "감만1 재개발",
+        "address": "우암로 134, 3층 (감만동, 삼진빌딩)",
+        "stage": "관리처분계획",
+        "builder": "(주)대우건설, (주)동부건설",
+        "units": "9092",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812110910423420.jpg",
+        "위도": 35.1222810498899,
+        "경도": 129.080947094044
+    },
+    {
+        "name": "개금2 재개발",
+        "address": "개금동 207-6 일원",
+        "stage": "관리처분계획",
+        "builder": "(주)동원개발",
+        "units": "539",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901100319289440.png",
+        "위도": 35.1549699713984,
+        "경도": 129.024010510023
+    },
+    {
+        "name": "거제1 재건축",
+        "address": "연제구 여고로130(거제동)",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202103100317242640.jpg",
+        "위도": 35.1988262887049,
+        "경도": 129.076796723637
+    },
+    {
+        "name": "거제2 재개발",
+        "address": "해맞이로81번길 8, 2층(거제동)",
+        "stage": "준공",
+        "builder": "삼성물산(주), 대림산업(주), HDC현대산업개발(주)",
+        "units": "4470",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811150439253150.bmp",
+        "위도": 35.181647268318,
+        "경도": 129.068355376785
+    },
+    {
+        "name": "거제2 재건축",
+        "address": "부산광역시 연제구 중앙대로1226번길 30, 205호",
+        "stage": "조합설립인가",
+        "builder": "미선정",
+        "units": "486",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202508080533121780.조감도.jpg",
+        "위도": 35.1982422339383,
+        "경도": 129.079689707121
+    },
+    {
+        "name": "거제동 가로주택정비",
+        "address": "연제구 법원로32번길 15,502호",
+        "stage": "이전고시",
+        "builder": "SG신성건설",
+        "units": "192",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201910040535397120.jpg",
+        "위도": 35.1913865496096,
+        "경도": 129.075104155138
+    },
+    {
+        "name": "광안1 재건축",
+        "address": "수영로 517, 601호",
+        "stage": "준공",
+        "builder": "GS건설",
+        "units": "971",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100458574530.jpg",
+        "위도": 35.1520916147911,
+        "경도": 129.11128787722
+    },
+    {
+        "name": "광안2 재개발",
+        "address": "수영로 565(광안동) 3층",
+        "stage": "착공",
+        "builder": "SK건설",
+        "units": "1237",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812121013023900.jpg",
+        "위도": 35.1562774892713,
+        "경도": 129.112526911661
+    },
+    {
+        "name": "광안2 재건축",
+        "address": "수영로 55번길 49, 102호",
+        "stage": "준공",
+        "builder": "IS동서",
+        "units": "225",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100500504140.jpg",
+        "위도": 36.6158197038474,
+        "경도": 127.492160719534
+    },
+    {
+        "name": "광안3 재개발",
+        "address": "수영구 장대골로 70-1",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "1073",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202409110251387940.png",
+        "위도": 35.1599454183845,
+        "경도": 129.1059008088
+    },
+    {
+        "name": "광안4 재개발",
+        "address": "수영구 수영로680번길 42, 2층",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "966",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1660395107234,
+        "경도": 129.117215464948
+    },
+    {
+        "name": "광안A 재개발",
+        "address": "연수로 375, 보광빌딩3층",
+        "stage": "사업시행계획인가",
+        "builder": "대림산업",
+        "units": "2780",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100457300040.png",
+        "위도": 35.1702543239521,
+        "경도": 129.111282932682
+    },
+    {
+        "name": "괴정1 가로주택 가로주택정비",
+        "address": "부산광역시 사하구 대티로1번길 39, 1층",
+        "stage": "건축심의 및 통합심의",
+        "builder": "동부건설(주)",
+        "units": "205",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1049206854632,
+        "경도": 128.998885984655
+    },
+    {
+        "name": "괴정2 재건축",
+        "address": "사하구 괴정동 733 일원",
+        "stage": "사업시행계획인가",
+        "builder": "미선정",
+        "units": "327",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812190317571190.png",
+        "위도": 35.0984561901363,
+        "경도": 128.987452929613
+    },
+    {
+        "name": "괴정2 가로주택정비",
+        "address": "사하구 승학로 146-1, 2층",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "225",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1029612349387,
+        "경도": 128.98289032223
+    },
+    {
+        "name": "괴정3 재건축",
+        "address": "괴정동 530-13번지 일원",
+        "stage": "사업시행계획인가",
+        "builder": "(주)대우건설",
+        "units": "757",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812200429448980.png",
+        "위도": 35.0955460969645,
+        "경도": 128.990242240129
+    },
+    {
+        "name": "괴정3 가로주택정비",
+        "address": "승학로 146-1, 2층",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "220",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1029612349387,
+        "경도": 128.98289032223
+    },
+    {
+        "name": "괴정5(시범생활권) 재개발",
+        "address": "괴정 571-1번지 일원",
+        "stage": "관리처분계획",
+        "builder": "포스코, 롯데건설 컨소시엄",
+        "units": "3509",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202210050338062270.jpg",
+        "위도": 35.0995201687988,
+        "경도": 128.983258410223
+    },
+    {
+        "name": "괴정6 재개발",
+        "address": "사하구 괴정동 486-20번지",
+        "stage": "조합설립인가",
+        "builder": "0",
+        "units": "692",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/null",
+        "위도": 35.0960540260818,
+        "경도": 128.991815330267
+    },
+    {
+        "name": "괴정8 재개발",
+        "address": "부산광역시 사하구 사하로141번길 51-1, 2층(괴정동)",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "923",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.0947737332733,
+        "경도": 128.99027817885
+    },
+    {
+        "name": "구서1 재개발",
+        "address": "금정구 금강로 585-1, 2층",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "544",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202501020156110150.jpg",
+        "위도": 35.2598282270293,
+        "경도": 129.08755595704
+    },
+    {
+        "name": "구서3 재건축",
+        "address": "수림로50번길 198",
+        "stage": "사업시행계획인가",
+        "builder": "DL E&C",
+        "units": "352",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901280916463860.jpg",
+        "위도": 35.2481262923599,
+        "경도": 129.090182928595
+    },
+    {
+        "name": "구서4 재건축",
+        "address": "부산광역시 금정구 중앙대로1929번길 6, 3층(구서동)",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "300",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100423533210.png",
+        "위도": 35.2566747764986,
+        "경도": 129.090889050775
+    },
+    {
+        "name": "구서5 재건축",
+        "address": "구서중앙로 20",
+        "stage": "조합설립인가",
+        "builder": "GS건설",
+        "units": "794",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202010221107451300.jpg",
+        "위도": 35.2560057821536,
+        "경도": 129.088358330187
+    },
+    {
+        "name": "구서동(금화,산호,삼산) 소규모재건축",
+        "address": "중앙대로1893번길 5, 2층",
+        "stage": "조합설립인가",
+        "builder": "DL E&C",
+        "units": "285",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.2532690547945,
+        "경도": 129.090958542019
+    },
+    {
+        "name": "구일주택(소규모) 소규모재건축",
+        "address": "부산광역시 해운대구 재송1로31번길 55(재송동)",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "99",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202207260149533410.png",
+        "위도": 35.1877469680511,
+        "경도": 129.124136566374
+    },
+    {
+        "name": "구포3 재개발",
+        "address": "구포동 백양대로 1139, 2층",
+        "stage": "이전고시",
+        "builder": "반도건설",
+        "units": "790",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901030243219790.jpg",
+        "위도": 35.2049379675416,
+        "경도": 129.002831087773
+    },
+    {
+        "name": "구포8 재개발",
+        "address": "부산시 북구 낙동대로 1762번길 110",
+        "stage": "추진위원회 구성",
+        "builder": "-",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.2048992388439,
+        "경도": 129.001075392589
+    },
+    {
+        "name": "구포대진아파트 소규모재건축",
+        "address": "북구 백양대로 1124번길 104, 지하1층",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "217",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.2004263582245,
+        "경도": 129.004121847776
+    },
+    {
+        "name": "금곡2-1 재개발",
+        "address": "금곡대로 430번가길 30(금곡동)",
+        "stage": "관리처분계획",
+        "builder": "산동아건설",
+        "units": "313",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202309140419570990.JPG",
+        "위도": 35.2462437626556,
+        "경도": 129.013978129279
+    },
+    {
+        "name": "남강맨션 가로주택정비",
+        "address": "수영구 광안동 165-10번지",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "40",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1539632709266,
+        "경도": 129.112891914175
+    },
+    {
+        "name": "남산1 재건축",
+        "address": "중앙대로1945번길 21, 2층",
+        "stage": "착공",
+        "builder": "DL E&C",
+        "units": "415",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202009240401403920.jpg",
+        "위도": 35.2578796050655,
+        "경도": 129.090033950319
+    },
+    {
+        "name": "남일,흥아아파트 가로주택정비",
+        "address": "연제구 중앙대로 1159 C동 607호(연산동, 남일아파트)",
+        "stage": "사업시행계획인가",
+        "builder": "미정",
+        "units": "278",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202205240421467180.jpg",
+        "위도": 35.1909686484637,
+        "경도": 129.079763990747
+    },
+    {
+        "name": "남천 백산 소규모재건축",
+        "address": "수영구 수영로464번길 22, 302호",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "173",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1469075847261,
+        "경도": 129.111368632679
+    },
+    {
+        "name": "남천17블록 가로주택정비",
+        "address": "수영구 남천동 17-3번지 일원",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "28",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1424617464802,
+        "경도": 129.109661678906
+    },
+    {
+        "name": "남천2 재개발",
+        "address": "황령대로 489번길 22(남천동)",
+        "stage": "준공",
+        "builder": "(주)포스코건설",
+        "units": "975",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812130444525050.jpg",
+        "위도": 35.1388975532766,
+        "경도": 129.10829733701
+    },
+    {
+        "name": "남천2-2(삼익타워) 재건축",
+        "address": "광남로 32 4층",
+        "stage": "준공",
+        "builder": "GS건설(주), (주)세정건설",
+        "units": "913",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812120145069280.jpg",
+        "위도": 35.1455240014538,
+        "경도": 129.111164254827
+    },
+    {
+        "name": "남천2-3(삼익비치) 재건축",
+        "address": "남천동로82 반도빌딩 3층",
+        "stage": "사업시행계획인가",
+        "builder": "GS건설",
+        "units": "3325",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100505279490.jpg",
+        "위도": 35.1442136696939,
+        "경도": 129.113389346981
+    },
+    {
+        "name": "다대1 재개발",
+        "address": "다대1동 248일원",
+        "stage": "추진위원회 구성",
+        "builder": "미선정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812141102469110.png",
+        "위도": 35.0592442399848,
+        "경도": 128.974953776146
+    },
+    {
+        "name": "다대4 재건축",
+        "address": "부산광역시 사하구 다대로 405, 3층",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "390",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.0670659362641,
+        "경도": 128.980269370411
+    },
+    {
+        "name": "당감1 재건축",
+        "address": "당감동 479-2번지 일원(무궁화)",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1631583449401,
+        "경도": 129.034696170995
+    },
+    {
+        "name": "당감1-1 재건축",
+        "address": "당감동 175-2번지 일원",
+        "stage": "조합설립인가",
+        "builder": "GS건설",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202508190517479970.jpg",
+        "위도": 35.1619225674679,
+        "경도": 129.038886609834
+    },
+    {
+        "name": "당리1 재건축",
+        "address": "당리동 237-2번지 일원",
+        "stage": "조합설립인가",
+        "builder": "대림산업",
+        "units": "480",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812190315040470.png",
+        "위도": 35.107647700851,
+        "경도": 128.970168483927
+    },
+    {
+        "name": "당리2 재건축",
+        "address": "부산광역시 사하구 다대로 30, 상가1동 101호",
+        "stage": "추진위원회 구성",
+        "builder": "미선정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812211046377150.png",
+        "위도": 35.0985223501239,
+        "경도": 128.976938758993
+    },
+    {
+        "name": "당리4 재개발",
+        "address": "사하구 괴정로 111-1, 3층",
+        "stage": "추진위원회 구성",
+        "builder": "-",
+        "units": "495",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1021217309122,
+        "경도": 128.976377833567
+    },
+    {
+        "name": "대라주공아파트 소규모재건축",
+        "address": "기장군 기장읍 대라리 128-11",
+        "stage": "사업시행계획인가",
+        "builder": "이수종합건설",
+        "units": "138",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202311020932244710.png",
+        "위도": 35.2398045018465,
+        "경도": 129.213844061282
+    },
+    {
+        "name": "대성주택 소규모재건축",
+        "address": "동제당로 75, 경로당",
+        "stage": "조합설립인가",
+        "builder": "(주)HJ중공업",
+        "units": "227",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1320810248973,
+        "경도": 129.077270507256
+    },
+    {
+        "name": "대연 가로주택정비",
+        "address": "못골번영로 71번길 16, 1층",
+        "stage": "건축심의 및 통합심의",
+        "builder": "코오롱글로벌(주)",
+        "units": "229",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1415412302697,
+        "경도": 129.087884790337
+    },
+    {
+        "name": "대연1 가로주택정비",
+        "address": "못골번영로 69, 지하1층",
+        "stage": "건축심의 및 통합심의",
+        "builder": "코오롱글로벌",
+        "units": "189",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1413894260967,
+        "경도": 129.088744858965
+    },
+    {
+        "name": "대연2 재건축",
+        "address": "진남로70번길 1, 3층 301호(대연동, 동원빌딩)",
+        "stage": "준공",
+        "builder": "현대엔지니어링(주)",
+        "units": "449",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100418336770.jpg",
+        "위도": 35.1381754415109,
+        "경도": 129.08742231156
+    },
+    {
+        "name": "대연3 재개발",
+        "address": "수영로 189, 3층 (대연동, 우리은행)",
+        "stage": "착공",
+        "builder": "(주)롯데건설, (주)현대산업개발",
+        "units": "4488",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812110954528620.jpg",
+        "위도": 35.135145370632,
+        "경도": 129.087417776393
+    },
+    {
+        "name": "대연3 재건축",
+        "address": "황령대로 488, 7층 (대연동, 원자빌딩)",
+        "stage": "착공",
+        "builder": "한화건설",
+        "units": "367",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202007230516537950.jpg",
+        "위도": 35.1382018217819,
+        "경도": 129.107129158029
+    },
+    {
+        "name": "대연4 재개발",
+        "address": "천제등로 30, 5층 (대연동, 성산빌딩)",
+        "stage": "해제",
+        "builder": "(주)대우건설",
+        "units": "1057",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100340041890.PNG",
+        "위도": 35.1329786201441,
+        "경도": 129.088521063282
+    },
+    {
+        "name": "대연4 재건축",
+        "address": "황령대로 488, 원자빌딩 2",
+        "stage": "준공",
+        "builder": "(주)대우건설",
+        "units": "1384",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100241185970.bmp",
+        "위도": 35.1382018217819,
+        "경도": 129.107129158029
+    },
+    {
+        "name": "대연5 재개발",
+        "address": "용소로28번길 8, 7층 (대연동,금하빌딩)",
+        "stage": "조합해산",
+        "builder": "(주)GS건설",
+        "units": "965",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100239404940.jpg",
+        "위도": 35.1350187852561,
+        "경도": 129.100345621911
+    },
+    {
+        "name": "대연6 재개발",
+        "address": "홍곡로320번길 106, 3층(대연동, UN평화기념관)",
+        "stage": "이전고시",
+        "builder": "(주)대우건설",
+        "units": "1422",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100220527200.jpg",
+        "위도": 35.1247524714423,
+        "경도": 129.093256879368
+    },
+    {
+        "name": "대연7 재개발",
+        "address": "대연5동 1903번지 일원",
+        "stage": "이전고시",
+        "builder": "(주)SK건설",
+        "units": "1,174(임대 60)",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812110912176080.jpg",
+        "위도": 35.1370208677899,
+        "경도": 129.09412148376
+    },
+    {
+        "name": "대연8 재개발",
+        "address": "석포로 76, 7층 (대연동)",
+        "stage": "조합설립인가",
+        "builder": "(주)포스코건설",
+        "units": "3530",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100217224570.jpg",
+        "위도": 35.1244648192701,
+        "경도": 129.088635958079
+    },
+    {
+        "name": "대연동 가로주택정비",
+        "address": "못골번영로 69, 2층",
+        "stage": "사업시행계획인가",
+        "builder": "코오롱글로벌(주)",
+        "units": "225",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202109271144080750.jpg",
+        "위도": 35.1413894260967,
+        "경도": 129.088744858965
+    },
+    {
+        "name": "대연맨션 소규모재건축",
+        "address": "수영로 289(대연동, 대연맨션)",
+        "stage": "착공",
+        "builder": "(주)동원개발",
+        "units": "160",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 36.6305161476717,
+        "경도": 127.505885638818
+    },
+    {
+        "name": "대연역 가로주택정비",
+        "address": "수영로 250번가길 11-16(대연동)",
+        "stage": "건축심의 및 통합심의",
+        "builder": "한신공영",
+        "units": "204",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.134116512997,
+        "경도": 129.096336471837
+    },
+    {
+        "name": "대우마리나1,2차 재건축",
+        "address": "부산광역시 해운대구 해운대해변로 141, 관리사무소동 2층",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1597709678504,
+        "경도": 129.148983073395
+    },
+    {
+        "name": "대평1 재개발",
+        "address": "대평동 1가 1번지 일원",
+        "stage": "사업시행계획인가",
+        "builder": "대림산업(주), 고려개발(주)",
+        "units": "999",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202311210356106400.jpg",
+        "위도": 35.0913692068559,
+        "경도": 129.03606815475
+    },
+    {
+        "name": "대호세화아파트 소규모재건축",
+        "address": "낙동대로451번길 13, 3층",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "101",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1045579205731,
+        "경도": 128.96962914223
+    },
+    {
+        "name": "덕천2 재건축",
+        "address": "북구 만덕대로84, 성암빌딩2층",
+        "stage": "준공",
+        "builder": "한화건설",
+        "units": "795",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901030313079930.jpg",
+        "위도": 35.2120204359942,
+        "경도": 129.014092150741
+    },
+    {
+        "name": "덕천2-1 재건축",
+        "address": "덕천동 357-12번지 일원",
+        "stage": "준공",
+        "builder": "(주)한화건설",
+        "units": "636",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901300407213980.jpg",
+        "위도": 35.2127299501383,
+        "경도": 129.012795860884
+    },
+    {
+        "name": "덕천3 재건축",
+        "address": "만덕대로 169 3층 (보성빌딩)",
+        "stage": "준공",
+        "builder": "한화건설",
+        "units": "429",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202007210118421650.jpg",
+        "위도": 35.2135370795191,
+        "경도": 129.023245193176
+    },
+    {
+        "name": "도시아파트 소규모재건축",
+        "address": "부산광역시 영도구 동삼동 220-1, 도시아파트",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "233",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.0844116644182,
+        "경도": 129.071908805701
+    },
+    {
+        "name": "동광세화맨션 소규모재건축",
+        "address": "남산동 39-1",
+        "stage": "조합설립인가",
+        "builder": "지원건설",
+        "units": "125",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 37.5589228667071,
+        "경도": 126.985454737103
+    },
+    {
+        "name": "동대신1 재건축",
+        "address": "구덕로296번길 40-1(동대신동2가)",
+        "stage": "추진위원회 구성",
+        "builder": "미지정",
+        "units": "287",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811070136475530.png",
+        "위도": 35.111130689482,
+        "경도": 129.019811454878
+    },
+    {
+        "name": "동대신2 재개발",
+        "address": "보수대로173, 3층(동대신동 1가)",
+        "stage": "준공",
+        "builder": "(주)동원개발",
+        "units": "503",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811071044154410.png",
+        "위도": 35.1108590130813,
+        "경도": 129.021755195581
+    },
+    {
+        "name": "동삼1 재개발",
+        "address": "동삼1동 323-30번지 일원",
+        "stage": "관리처분계획",
+        "builder": "현대엔지니어링(주)",
+        "units": "1999",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201509230529209620.jpg",
+        "위도": 35.08007603299,
+        "경도": 129.066847127234
+    },
+    {
+        "name": "동삼1 재건축",
+        "address": "영도구 절영로 504, 조양비취맨션 상가동 111호",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "647",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.0709375752394,
+        "경도": 129.070767885546
+    },
+    {
+        "name": "동삼2 재개발",
+        "address": "동삼동 383-1번지 일원",
+        "stage": "준공",
+        "builder": "아이에스동서",
+        "units": "1228",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201509230532173630.jpg",
+        "위도": 35.0756151300257,
+        "경도": 129.074282229033
+    },
+    {
+        "name": "동성하이타운 가로주택정비",
+        "address": "못골번영로 16, 흥원빌딩 3층",
+        "stage": "사업시행계획인가",
+        "builder": "두산건설",
+        "units": "265",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1366227190041,
+        "경도": 129.089154003891
+    },
+    {
+        "name": "동의대역세권 가로주택정비",
+        "address": "가야대로587번길 11-5 (2층)",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "204",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1552240866449,
+        "경도": 129.035748759108
+    },
+    {
+        "name": "럭키무지개 가로주택정비사업 가로주택정비",
+        "address": "부산광역시 부산진구 신천대로 266, 2층(부암동)",
+        "stage": "조합설립인가",
+        "builder": "미선정",
+        "units": "316",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1655783730934,
+        "경도": 129.050587614275
+    },
+    {
+        "name": "만덕2 재건축",
+        "address": "북구 덕천로 303 4층(만덕동)",
+        "stage": "준공",
+        "builder": "(주)동부토건",
+        "units": "593",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812280902529670.jpg",
+        "위도": 35.2096481182379,
+        "경도": 129.03704121617
+    },
+    {
+        "name": "만덕3 재건축",
+        "address": "북구 만덕1로 15 3층",
+        "stage": "조합설립인가",
+        "builder": "코오롱글로벌주식회사",
+        "units": "445",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901310228282280.jpg",
+        "위도": 35.2140033583175,
+        "경도": 129.03578109528
+    },
+    {
+        "name": "만덕4 재건축",
+        "address": "북구 덕천로276번길 5",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.208669843027,
+        "경도": 129.035615074414
+    },
+    {
+        "name": "망미1 재개발",
+        "address": "망미배산로 70번길 37(망미동)",
+        "stage": "이전고시",
+        "builder": "SK건설(주)",
+        "units": "1245",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100456150750.jpg",
+        "위도": 35.1761344106197,
+        "경도": 129.099987362903
+    },
+    {
+        "name": "망미7 재개발",
+        "address": "부산광역시 수영구 망미배산로22, 2층",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "1386",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202407241029065900.jpg",
+        "위도": 35.1744204540179,
+        "경도": 129.105894988044
+    },
+    {
+        "name": "명륜2 재건축",
+        "address": "동래구 명륜동 702-47번지 일원",
+        "stage": "관리처분계획",
+        "builder": "미정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201910110456190460.JPG",
+        "위도": 35.2120183186672,
+        "경도": 129.080293223467
+    },
+    {
+        "name": "명보아파트 가로주택정비",
+        "address": "동래구 온천동 1448-1번지 일원",
+        "stage": "사업시행계획인가",
+        "builder": "-",
+        "units": "-",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202011181130335950.jpg",
+        "위도": 35.2040903941645,
+        "경도": 129.06988838549
+    },
+    {
+        "name": "명장1 재개발",
+        "address": "동래구 명장동 623번지 일원",
+        "stage": "이전고시",
+        "builder": "대림산업(주)",
+        "units": "1,384",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201509250925330950.jpg",
+        "위도": 35.2061076862485,
+        "경도": 129.10766327705
+    },
+    {
+        "name": "명장동29-27번지일대 가로주택정비",
+        "address": "명장동 29-27번지 일원",
+        "stage": "건축심의 및 통합심의",
+        "builder": "-",
+        "units": "-",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.2033867797125,
+        "경도": 129.098950445837
+    },
+    {
+        "name": "문현1 재개발",
+        "address": "자유평화로3번길 14-21, 601호 (범천동, 소망빌딩)",
+        "stage": "조합설립인가",
+        "builder": "GS건설(주)",
+        "units": "2568",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202306260241186770.JPG",
+        "위도": 35.1422262821276,
+        "경도": 129.061891723481
+    },
+    {
+        "name": "문현3 재개발",
+        "address": "고동골로78번길 26, 3층(문현동)",
+        "stage": "관리처분계획",
+        "builder": "㈜현대엔지니어링, ㈜두산건설",
+        "units": "2772",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100309577500.bmp",
+        "위도": 35.1437770847489,
+        "경도": 129.072916453905
+    },
+    {
+        "name": "문현4동 가로주택정비",
+        "address": "부산광역시 남구 우암로362번길 7, 3층",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "525",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1341642888594,
+        "경도": 129.067533097483
+    },
+    {
+        "name": "문현6 재개발",
+        "address": "남구 수영로 26(문현동, 문현대림시티프라자 상가 208호)",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202505070446422320.png",
+        "위도": 35.1362909579584,
+        "경도": 129.070460615253
+    },
+    {
+        "name": "문현대성 가로주택정비",
+        "address": "문현로 66번길 41, 대성아파트 E동 205호",
+        "stage": "조합설립인가",
+        "builder": "(주)HJ중공업",
+        "units": "161",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1418835801031,
+        "경도": 129.074657772672
+    },
+    {
+        "name": "문화아파트 소규모재건축사업 소규모재건축",
+        "address": "부산광역시 부산진구 시민공원로 38, 문화아파트 103호",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1635426714819,
+        "경도": 129.053946718678
+    },
+    {
+        "name": "민락2 재개발",
+        "address": "무학로63번길 115",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202302171056455370.jpg",
+        "위도": 35.1661274105914,
+        "경도": 129.118897974502
+    },
+    {
+        "name": "초량1구역 가로주택정비",
+        "address": "동구 초량동 42-9번지 일원",
+        "stage": "건축심의 및 통합심의",
+        "builder": "SK에코 플랜트",
+        "units": "359",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1221892914139,
+        "경도": 129.042468959135
+    },
+    {
+        "name": "초량2 재개발",
+        "address": "부산광역시 동구 망양로 607-1",
+        "stage": "사업시행계획인가",
+        "builder": "SK, 현대건설",
+        "units": "1815",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811080656523290.jpg",
+        "위도": 35.1244700102806,
+        "경도": 129.034550542184
+    },
+    {
+        "name": "초읍1 재개발",
+        "address": "초읍동 51-187번지 삼광사 북측",
+        "stage": "사업시행계획인가",
+        "builder": "(주)롯데건설",
+        "units": "1522",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901030503520270.jpg",
+        "위도": 35.177427772988,
+        "경도": 129.044751829249
+    },
+    {
+        "name": "초읍2 재개발",
+        "address": "초읍동 556번지 일원",
+        "stage": "준공",
+        "builder": "코오롱글로벌(주)",
+        "units": "756",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812120200518760.png",
+        "위도": 35.1797233650471,
+        "경도": 129.05047098384
+    },
+    {
+        "name": "크로바아파트 소규모재건축",
+        "address": "남구 수영로250번길 50",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "170",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.133790581318,
+        "경도": 129.095929255302
+    },
+    {
+        "name": "태창파크맨션 소규모재건축",
+        "address": "수영구 민락동 11-1번지 일원",
+        "stage": "조합설립인가",
+        "builder": "삼정건설㈜",
+        "units": "122",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1605764704479,
+        "경도": 129.128519368793
+    },
+    {
+        "name": "하단1 재건축",
+        "address": "하단동 605-31번지 일원",
+        "stage": "조합설립인가",
+        "builder": "미선정",
+        "units": "408",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812211012474230.png",
+        "위도": 35.1043145393996,
+        "경도": 128.962628257932
+    },
+    {
+        "name": "한독아파트 소규모재건축",
+        "address": "연제구 봉수로 15(연산동, 한독아파트) 4동 206호",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "217",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1728832483228,
+        "경도": 129.089548068769
+    },
+    {
+        "name": "현우산호맨션 소규모재건축",
+        "address": "부산광역시 해운대구 달맞이길117번나길 194, 1동 지하1층",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "105",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.164432324846,
+        "경도": 129.184796695001
+    },
+    {
+        "name": "협진신태양 소규모재건축(괴정) 소규모재건축",
+        "address": "사하구 사리로52, 2층(괴정동)",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "148",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1043550168032,
+        "경도": 128.998749240557
+    },
+    {
+        "name": "화명2 재개발",
+        "address": "북구 양달로4번길 17 3층(화명동)",
+        "stage": "준공",
+        "builder": "대우건설",
+        "units": "886",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901030250018570.jpg",
+        "위도": 35.2408822914768,
+        "경도": 129.014704710983
+    },
+    {
+        "name": "화명2 재건축",
+        "address": "북구 금곡대로 280-9, 시영아파트(화명동)",
+        "stage": "사업시행계획인가",
+        "builder": "한화건설",
+        "units": "354",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201903201009044540.jpg",
+        "위도": 35.2326561780843,
+        "경도": 129.014816003891
+    },
+    {
+        "name": "화명3 재개발",
+        "address": "산성로47번길 1, 3층(화명동)",
+        "stage": "준공",
+        "builder": "(주)동원개발",
+        "units": "447",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901290242389040.jpg",
+        "위도": 35.2409194625053,
+        "경도": 129.018286741571
+    },
+    {
+        "name": "화목타운 소규모재건축",
+        "address": "수영구 남천동 47-1번지",
+        "stage": "건축심의 및 통합심의",
+        "builder": "미정",
+        "units": "286",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202109240423455270.png",
+        "위도": 35.1490400816531,
+        "경도": 129.110240985836
+    },
+    {
+        "name": "효성아파트 소규모재건축",
+        "address": "연제구 중앙대로1038번길 54, 부녀회사무실(연산동, 효성아파트)",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "221",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1786006171557,
+        "경도": 129.079372934307
+    },
+    {
+        "name": "사직5 재개발",
+        "address": "동래구 중앙대로1267번길 89, 2층",
+        "stage": "조합설립인가",
+        "builder": "1",
+        "units": "4",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1989559010678,
+        "경도": 129.073078521474
+    },
+    {
+        "name": "삼보아파트 가로주택정비",
+        "address": "연제구 세병로 34, 601호(연산동, 삼보아파트)",
+        "stage": "사업시행계획인가",
+        "builder": "미정",
+        "units": "327",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202410240123310190.JPG",
+        "위도": 35.1915161694707,
+        "경도": 129.08392569294
+    },
+    {
+        "name": "삼성콘도맨션(소규모) 소규모재건축",
+        "address": "부산광역시 해운대구 중동1로 37번길 9, 3층",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "114",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202001100441043780.jpg",
+        "위도": 35.1625742711742,
+        "경도": 129.163717901391
+    },
+    {
+        "name": "삼월주택 소규모재건축",
+        "address": "용호로 123번길 69, 203호(용호동, 영신맨션)",
+        "stage": "사업시행계획인가",
+        "builder": "극동건설",
+        "units": "120",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1232905835601,
+        "경도": 129.114385176863
+    },
+    {
+        "name": "새들맨션 소규모재건축",
+        "address": "대청동4가 79-1",
+        "stage": "조합설립인가",
+        "builder": "KCC건설",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202204060521305670.jpg",
+        "위도": 35.1048937303999,
+        "경도": 129.02965565963
+    },
+    {
+        "name": "새연산아파트 소규모재건축",
+        "address": "연제구 거제천로230번길 53,상가동 202호(연산동, 연산센터빌)",
+        "stage": "착공",
+        "builder": "코오롱글로벌(주)",
+        "units": "466",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812111158388920.png",
+        "위도": 35.189430467261,
+        "경도": 129.083223112246
+    },
+    {
+        "name": "서금사재정비촉진5구역 재개발",
+        "address": "서명로 15-1, 3층",
+        "stage": "사업시행계획인가",
+        "builder": "포스코건설, GS건설",
+        "units": "3802",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812101111435020.bmp",
+        "위도": 35.213732949322,
+        "경도": 129.101567535096
+    },
+    {
+        "name": "서금사재정비촉진6구역 재개발",
+        "address": "서동로 129, 3층",
+        "stage": "사업시행계획인가",
+        "builder": "현대건설",
+        "units": "2543",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812101113538990.jpg",
+        "위도": 35.9355553156724,
+        "경도": 126.965251057268
+    },
+    {
+        "name": "서금사재정비촉진A구역 재개발",
+        "address": "동현로16번길 83",
+        "stage": "사업시행계획인가",
+        "builder": "-",
+        "units": "2363",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812101115017820.PNG",
+        "위도": 35.220364035154,
+        "경도": 129.087839630805
+    },
+    {
+        "name": "서대신4 재개발",
+        "address": "대영로45번길20, 3층(서대신동2가)",
+        "stage": "관리처분계획",
+        "builder": "(주)HJ중공업",
+        "units": "542",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811071134353950.png",
+        "위도": 35.1105166517725,
+        "경도": 129.01604895234
+    },
+    {
+        "name": "서대신5 재개발",
+        "address": "대영로84, 3층(동대신동1가)",
+        "stage": "준공",
+        "builder": "(주)HJ중공업",
+        "units": "733",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201907190121066400.jpg",
+        "위도": 35.1107307204201,
+        "경도": 129.020218539218
+    },
+    {
+        "name": "성암아파트 소규모재건축사업 소규모재건축",
+        "address": "부산광역시 부산진구 부암동 80-8번지",
+        "stage": "사업시행계획인가",
+        "builder": "DL E&C",
+        "units": "343",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202401301022277440.jpg",
+        "위도": 35.1652001747815,
+        "경도": 129.051820707618
+    },
+    {
+        "name": "성창아파트 소규모재건축",
+        "address": "수영로 275-8, 107호",
+        "stage": "건축심의 및 통합심의",
+        "builder": "(주)익수종합건설",
+        "units": "51",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1361644591403,
+        "경도": 129.096452506525
+    },
+    {
+        "name": "세화아파트 소규모재건축",
+        "address": "부산진구 진연로9번길 16 ,4층(양정동)",
+        "stage": "이전고시",
+        "builder": "(주)삼정기업",
+        "units": "160",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811160102107890.jpg",
+        "위도": 35.17796584301,
+        "경도": 129.073682544571
+    },
+    {
+        "name": "수안1 재건축",
+        "address": "동래구 수안동 665-1번지(해바라기1,2차, 새동래 마)",
+        "stage": "사업시행계획인가",
+        "builder": "미정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201910171004321390.jpg",
+        "위도": 35.2018966096167,
+        "경도": 129.0813609014
+    },
+    {
+        "name": "수안3 재건축",
+        "address": "동래구 수안동 34-1번지(새동래3차)",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812260145092970.png",
+        "위도": 35.1957858277856,
+        "경도": 129.086374204165
+    },
+    {
+        "name": "수영1 재개발",
+        "address": "수영구 구락로74, 1층",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202401230126037230.png",
+        "위도": 35.1736985748242,
+        "경도": 129.11714762401
+    },
+    {
+        "name": "수영아파트 가로주택정비",
+        "address": "수영구 연수로372, 2층 201호",
+        "stage": "건축심의 및 통합심의",
+        "builder": "㈜에이치제이중공업",
+        "units": "148",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202306271009004840.jpg",
+        "위도": 35.1702653220494,
+        "경도": 129.110595220559
+    },
+    {
+        "name": "시민공원주변재정비촉진1구역 재개발",
+        "address": "부산진구 부암동 27-7번지 일원",
+        "stage": "관리처분계획",
+        "builder": "GS건설",
+        "units": "1874",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202312270312147340.jpg",
+        "위도": 35.1663781712106,
+        "경도": 129.052629146843
+    },
+    {
+        "name": "시민공원주변재정비촉진2-1구역 재개발",
+        "address": "범전동 263-5번지 일원",
+        "stage": "관리처분계획",
+        "builder": "-",
+        "units": "1902",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202009230504509130.jpg",
+        "위도": 35.1645187623794,
+        "경도": 129.0579940958
+    },
+    {
+        "name": "시민공원주변재정비촉진2-2구역 재개발",
+        "address": "범전동 400번지 일원",
+        "stage": "정비계획 수립 및 정비구역 지정",
+        "builder": "미정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812200439330180.jpg",
+        "위도": 35.1632891112418,
+        "경도": 129.055288908622
+    },
+    {
+        "name": "시민공원주변재정비촉진3구역 재개발",
+        "address": "범전동 71-5번지 일원",
+        "stage": "관리처분계획",
+        "builder": "디엘이엔씨(주)",
+        "units": "3545",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100507581150.png",
+        "위도": 35.1688396753653,
+        "경도": 129.06372173222
+    },
+    {
+        "name": "시민공원주변재정비촉진4구역 재개발",
+        "address": "양정동 445-15번지 일원",
+        "stage": "사업시행계획인가",
+        "builder": "현대엔지니어링(주)",
+        "units": "840",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202210180448454010.png",
+        "위도": 37.5952832458566,
+        "경도": 127.192018494071
+    },
+    {
+        "name": "신서면아파트 소규모재건축사업 소규모재건축",
+        "address": "부산광역시 부산진구 부암동 669-6번지 일원",
+        "stage": "착공",
+        "builder": "중아건설(주)",
+        "units": "160",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202302140333144160.jpg",
+        "위도": 35.1624770564743,
+        "경도": 129.054397710997
+    },
+    {
+        "name": "신양아파트 소규모재건축사업 소규모재건축",
+        "address": "부산광역시 부산진구 진사로25번길 3, 2층(개금동)",
+        "stage": "건축심의 및 통합심의",
+        "builder": "중흥토건",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1494633559106,
+        "경도": 129.016328540896
+    },
+    {
+        "name": "안락1 재건축",
+        "address": "동래구 안락동 1230번지 일원",
+        "stage": "관리처분계획",
+        "builder": "(주)대우건설",
+        "units": "1481",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201509251143508170.jpg",
+        "위도": 35.1999111743692,
+        "경도": 129.109553915718
+    },
+    {
+        "name": "양정1 재개발",
+        "address": "부산진구 양정동 73-7번지 일원",
+        "stage": "준공",
+        "builder": "프리미엄사업단(GS,SK,포스코)",
+        "units": "2276",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901100247458330.png",
+        "위도": 35.1717491868061,
+        "경도": 129.074572941315
+    },
+    {
+        "name": "양정1 가로주택정비",
+        "address": "양정동 320-1번지 일원",
+        "stage": "사업시행계획인가",
+        "builder": "미정",
+        "units": "136",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 37.5964383763242,
+        "경도": 127.194730842097
+    },
+    {
+        "name": "양정2 재개발",
+        "address": "양정동 12-6번지 일원",
+        "stage": "준공",
+        "builder": "KCC건설",
+        "units": "1338",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100434176670.jpg",
+        "위도": 37.6308522446092,
+        "경도": 127.195043664014
+    },
+    {
+        "name": "양정3 재개발",
+        "address": "양정동 64-3번지 일원",
+        "stage": "착공",
+        "builder": "롯데건설",
+        "units": "903",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812210943086750.png",
+        "위도": 34.8728344247981,
+        "경도": 128.6516505553
+    },
+    {
+        "name": "양정산정 가로주택정비",
+        "address": "부산진구 양정동 138-12번지 일원",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1752189262962,
+        "경도": 129.076238716667
+    },
+    {
+        "name": "양정산호아파트 소규모재건축",
+        "address": "부산광역시 부산진구 연수로 18, 3층(양정동)",
+        "stage": "사업시행계획인가",
+        "builder": "동원개발",
+        "units": "404",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202302160136031190.jpg",
+        "위도": 35.1734998887534,
+        "경도": 129.073335210762
+    },
+    {
+        "name": "엄궁3 재개발",
+        "address": "사상구 엄궁동 132 일원",
+        "stage": "착공",
+        "builder": "(주)포스코건설",
+        "units": "1305",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812101122394470.jpg",
+        "위도": 35.125480526736,
+        "경도": 128.974098821979
+    },
+    {
+        "name": "연산2 가로주택정비",
+        "address": "부산광역시 연제구 거제천로 129",
+        "stage": "조합설립인가",
+        "builder": "미선정",
+        "units": "162",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1853087901056,
+        "경도": 129.075325419185
+    },
+    {
+        "name": "연산3 재개발",
+        "address": "연산동 2022번지 일원",
+        "stage": "준공",
+        "builder": "현대건설(주)",
+        "units": "1869",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811140309520550.bmp",
+        "위도": 34.8205629408436,
+        "경도": 126.390061128113
+    },
+    {
+        "name": "연산5 재개발",
+        "address": "연제구 연제로33-1, 301호",
+        "stage": "착공",
+        "builder": "한진중공업 건설부문",
+        "units": "376",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812111006034830.jpg",
+        "위도": 35.1778442320308,
+        "경도": 129.076303741696
+    },
+    {
+        "name": "연산5(망미주공) 재건축",
+        "address": "연제구 토현로 10 나 상가 216호",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812111143137350.png",
+        "위도": 35.1785179574933,
+        "경도": 129.111055676864
+    },
+    {
+        "name": "연산6 재건축",
+        "address": "연제구 연산동 387-1번지 일원(한양아파트 일원)",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "1672",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202304140446080210.jpg",
+        "위도": 35.1903005926106,
+        "경도": 129.101602491141
+    },
+    {
+        "name": "연산8 재개발",
+        "address": "부산광역시 연제구 연안로14번길 17. 1층",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202403190150060870.jpg",
+        "위도": 35.1891695940577,
+        "경도": 129.108182473844
+    },
+    {
+        "name": "연산강변1 가로주택정비",
+        "address": "연제구 과정로 342, 2층",
+        "stage": "건축심의 및 통합심의",
+        "builder": "미정",
+        "units": "224",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202410241136200570.JPG",
+        "위도": 35.1905971261165,
+        "경도": 129.090821695319
+    },
+    {
+        "name": "연산동 태광맨션 가로주택정비",
+        "address": "연제구 고분로235번길 26, 3층",
+        "stage": "사업시행계획인가",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1857329220101,
+        "경도": 129.108030119721
+    },
+    {
+        "name": "연지2 재개발",
+        "address": "연지동 250-76번지 일원",
+        "stage": "준공",
+        "builder": "삼성물산(주)",
+        "units": "2616",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201901100237540030.png",
+        "위도": 35.1749621373705,
+        "경도": 129.051100664045
+    },
+    {
+        "name": "영도제1재정비촉진5구역 재개발",
+        "address": "신선동3가 89-21번지 일원",
+        "stage": "조합설립인가",
+        "builder": "현대건설,현대엔지니어링",
+        "units": "4389",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202106010919455490.jpg",
+        "위도": 35.0824664059263,
+        "경도": 129.044671571331
+    },
+    {
+        "name": "영주아파트 2블럭 가로주택정비",
+        "address": "부산광역시 중구 영주로 64-1",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "215",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1129403198992,
+        "경도": 129.030343944829
+    },
+    {
+        "name": "온천1 재건축",
+        "address": "동래구 온천동 397-6번지 일원",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812260149544010.png",
+        "위도": 35.2126817626072,
+        "경도": 129.074943276529
+    },
+    {
+        "name": "온천3 재건축",
+        "address": "동래구 충렬대로107번길 54, 1층 8호 (온천동, 럭키종합상가)",
+        "stage": "추진위원회 구성",
+        "builder": "1",
+        "units": "3",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.2098418293523,
+        "경도": 129.074414771081
+    },
+    {
+        "name": "온천4 재개발",
+        "address": "동래구 온천동 100-13번지 일원",
+        "stage": "착공",
+        "builder": "(주)삼성물산",
+        "units": "4043(임대220)",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201509251220366130.jpg",
+        "위도": 35.2216017103716,
+        "경도": 129.079390498667
+    },
+    {
+        "name": "온천제2공영아파트 일원 가로주택정비",
+        "address": "온천동 1370-1번지 일원",
+        "stage": "사업시행계획인가",
+        "builder": "미정",
+        "units": "271",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202303150522363610.png",
+        "위도": 35.2011291351725,
+        "경도": 129.06751424989
+    },
+    {
+        "name": "용호2 재개발",
+        "address": "용호로 99, 3층(용호동)",
+        "stage": "관리처분계획",
+        "builder": "(주)대우건설",
+        "units": "1041",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202207270507521480.jpg",
+        "위도": 35.8120719646894,
+        "경도": 127.096849386367
+    },
+    {
+        "name": "용호3 재개발",
+        "address": "용호로 198번길 6, 2층 203호 (용호동, 레지던스)",
+        "stage": "준공",
+        "builder": "(주)태영건설, (주)효성중공업",
+        "units": "1725",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100357298350.jpg",
+        "위도": 35.114828508667,
+        "경도": 129.110619130517
+    },
+    {
+        "name": "용호7 재개발",
+        "address": "동명로 158번길 86, 2층",
+        "stage": "추진위원회 구성",
+        "builder": "-",
+        "units": "1112",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1153644117701,
+        "경도": 129.113019090287
+    },
+    {
+        "name": "우동1 재건축",
+        "address": "부산광역시 해운대구 해운대로 383번길 150, 301호",
+        "stage": "사업시행계획인가",
+        "builder": "DL이앤씨",
+        "units": "1476",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/null",
+        "위도": 35.1753833244765,
+        "경도": 129.141091415321
+    },
+    {
+        "name": "우동2재개발 재개발",
+        "address": "부산광역시 남구 수영로 18-8, 401호",
+        "stage": "착공",
+        "builder": "(주)삼한종합건설",
+        "units": "660",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100537357900.jpg",
+        "위도": 35.1363378044651,
+        "경도": 129.069543822485
+    },
+    {
+        "name": "우동3 재개발",
+        "address": "부산광역시 해운대구 중동1로 25-1, 7층",
+        "stage": "조합설립인가",
+        "builder": "현대산업개발, 대우건설",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202504230517124800.jpg",
+        "위도": 35.1630960707061,
+        "경도": 129.162550430945
+    },
+    {
+        "name": "우동5 재개발",
+        "address": "부산광역시 해운대구 해운대로469번길 190, 상가동 108호",
+        "stage": "해제",
+        "builder": "한웅건설(주)",
+        "units": "199",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812200425491670.jpg",
+        "위도": 35.1699585754124,
+        "경도": 129.14185288399
+    },
+    {
+        "name": "우암1 재개발",
+        "address": "우암로 148, 부산은행 우암점 2층(우암동)",
+        "stage": "착공",
+        "builder": "(주)효성, 진흥 공동사업단",
+        "units": "2205",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202205130821179750.jpg",
+        "위도": 35.1234210320235,
+        "경도": 129.080400699963
+    },
+    {
+        "name": "우암2 재개발",
+        "address": "우암로 168-1, 3층",
+        "stage": "착공",
+        "builder": "두산건설",
+        "units": "3048",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812100358076900.PNG",
+        "위도": 36.3407588748263,
+        "경도": 127.436330421309
+    },
+    {
+        "name": "월성아파트 소규모재건축",
+        "address": "중앙대로1039번길 13 3층 302호",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "220",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202203030200540110.png",
+        "위도": 35.181806044993,
+        "경도": 129.077203824632
+    },
+    {
+        "name": "이진캐스빌 소규모재건축",
+        "address": "부산광역시 해운대구 중동 1526-1번지 상가",
+        "stage": "건축심의 및 통합심의",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1600869104471,
+        "경도": 129.177228976837
+    },
+    {
+        "name": "일동파크맨션(소규모) 소규모재건축",
+        "address": "북구 덕천동 365-11번지 일원",
+        "stage": "건축심의 및 통합심의",
+        "builder": "-",
+        "units": "231",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202205110459258830.jpg",
+        "위도": 35.2155511261606,
+        "경도": 129.020934405108
+    },
+    {
+        "name": "장림1 재개발",
+        "address": "하신중앙로 176, 3층",
+        "stage": "준공",
+        "builder": "(주)두산건설",
+        "units": "1643",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201611031128057680.JPG",
+        "위도": 35.0945179453048,
+        "경도": 128.962759290684
+    },
+    {
+        "name": "재송2 재건축",
+        "address": "부산광역시 해운대구 해운대로61번길 72",
+        "stage": "착공",
+        "builder": "미정",
+        "units": "938",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811070407383450.JPG",
+        "위도": 35.1947583229315,
+        "경도": 129.126467065955
+    },
+    {
+        "name": "재송4 재건축",
+        "address": "재송동 1023번지 일원(재송삼익아파트)",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "미정",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812200528362980.jpg",
+        "위도": 35.1911075114271,
+        "경도": 129.121300356058
+    },
+    {
+        "name": "재송5 재건축",
+        "address": "부산광역시 해운대구 재반로118번길 71(재송그린아파트관리사무소)",
+        "stage": "추진위원회 구성",
+        "builder": "미정",
+        "units": "0",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201812200536209000.jpg",
+        "위도": 35.1916234956582,
+        "경도": 129.12985607532
+    },
+    {
+        "name": "정남아파트 주변 가로주택정비",
+        "address": "북구 만덕대로 155번길 40-11, 관리동 2층",
+        "stage": "사업시행계획인가",
+        "builder": "-",
+        "units": "129",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202211210952028680.jpg",
+        "위도": 35.215426506337,
+        "경도": 129.0219911894
+    },
+    {
+        "name": "좌천동 227번지일원 가로주택정비",
+        "address": "부산시 동구 좌천동 227번지 일원",
+        "stage": "조합설립인가",
+        "builder": "미정",
+        "units": "492",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1332389642778,
+        "경도": 129.054737211784
+    },
+    {
+        "name": "좌천범일통합2지구 재개발",
+        "address": "부산광역시 동구 조방로17, 대웅빌딩2층",
+        "stage": "조합설립인가",
+        "builder": "GS건설,현대엔지니어링",
+        "units": "1554",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811070226028920.jpg",
+        "위도": 35.1384691173363,
+        "경도": 129.062142401588
+    },
+    {
+        "name": "좌천범일통합3지구 재개발",
+        "address": "부산광역시 동구 성남로 47-1 2층",
+        "stage": "준공",
+        "builder": "두산건설",
+        "units": "2040",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_201811080823158970.jpg",
+        "위도": 35.1308390823427,
+        "경도": 129.054066780534
+    },
+    {
+        "name": "중동5 재개발",
+        "address": "부산광역시 해운대구 중동 785-8번지, 1층",
+        "stage": "조합설립인가",
+        "builder": "-",
+        "units": "1149",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1628653792947,
+        "경도": 129.174541590545
+    },
+    {
+        "name": "진일아파트 가로주택정비",
+        "address": "부산광역시 연제구 고분로 136 (연산동, 진일아파트)",
+        "stage": "조합설립인가",
+        "builder": "미선정",
+        "units": "190",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/",
+        "위도": 35.1850193112971,
+        "경도": 129.096368595287
+    },
+    {
+        "name": "청룡1 재건축",
+        "address": "중앙대로 2128-12, 관리사무소",
+        "stage": "사업시행계획인가",
+        "builder": "미정",
+        "units": "278",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202409300455258810.jpg",
+        "위도": 35.2742850975176,
+        "경도": 129.092903970072
+    },
+    {
+        "name": "청학1 재건축",
+        "address": "청학동 135번지 일원",
+        "stage": "관리처분계획",
+        "builder": "한화건설",
+        "units": "534",
+        "image_url": "http://dynamice.busan.go.kr/data/busi_ara/BARA_202210260134085080.png",
+        "위도": 35.0933373317409,
+        "경도": 129.062888084266
+    }
+]
