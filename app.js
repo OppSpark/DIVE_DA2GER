@@ -573,3 +573,112 @@ loadData().catch(err => {
   console.error(err);
   alert('데이터 로딩 중 오류가 발생했습니다.');
 });
+
+/* ====== Chatbot (플로팅 위젯) ====== */
+(function initChatbot() {
+  const CHAT_URL = (window.CONFIG && window.CONFIG.CHAT_URL) || '/ask'; // config.js의 CHAT_URL 사용  [oai_citation:4‡config.js](file-service://file-NHYPDXzsbYacbtp99etxLi)
+
+  // --- UI 생성 ---
+  const toggleBtn = document.createElement('button');
+  toggleBtn.id = 'chat-toggle';
+  toggleBtn.type = 'button';
+  toggleBtn.textContent = '챗봇 문의';
+
+  const wrap = document.createElement('div');
+  wrap.id = 'chat-widget';
+  wrap.innerHTML = `
+    <div class="chat-header">
+      <span>안심전세 챗봇</span>
+      <button id="chat-close" title="닫기">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages" role="log" aria-live="polite"></div>
+    <form class="chat-input" id="chat-form">
+      <input id="chat-text" type="text" placeholder="무엇이든 물어보세요…" autocomplete="off" />
+      <button id="chat-send" type="submit">전송</button>
+    </form>
+  `;
+  document.body.appendChild(toggleBtn);
+  document.body.appendChild(wrap);
+
+  const messagesEl = wrap.querySelector('#chat-messages');
+  const formEl = wrap.querySelector('#chat-form');
+  const inputEl = wrap.querySelector('#chat-text');
+  const closeEl = wrap.querySelector('#chat-close');
+
+  const open = () => { wrap.classList.add('open'); inputEl.focus(); };
+  const close = () => { wrap.classList.remove('open'); };
+  toggleBtn.addEventListener('click', open);
+  closeEl.addEventListener('click', close);
+
+  // --- 메시지 헬퍼 ---
+  function appendMessage(text, sender, { loading = false } = {}) {
+    const msg = document.createElement('div');
+    msg.className = `msg ${sender}` + (loading ? ' loading' : '');
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.textContent = text;
+    msg.appendChild(bubble);
+    messagesEl.appendChild(msg);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return msg; // DOM 노드 반환 (치환용)
+  }
+  function replaceMessage(msgNode, newText, { makeBot = true } = {}) {
+    if (!msgNode) return;
+    msgNode.classList.remove('loading');
+    msgNode.classList.add('bot');
+    const bubble = msgNode.querySelector('.bubble');
+    if (bubble) bubble.textContent = newText;
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  // --- 서버 호출 (플러터 포맷 그대로) ---
+  async function askBot(userText) {
+    // 로딩 메시지
+    const loadingNode = appendMessage('답변을 불러오는 중...', 'bot', { loading: true });
+
+    try {
+      const res = await fetch(CHAT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: userText }) // Flutter와 동일 포맷
+      });
+
+      // 본문 먼저 텍스트로 받았다가 JSON 파싱 (디버깅 용이)
+      const raw = await res.text();
+      if (!res.ok) {
+        replaceMessage(loadingNode, `에러: ${res.status}`);
+        console.error('Chat API error', res.status, raw);
+        return;
+      }
+      let data;
+      try { data = JSON.parse(raw); }
+      catch { 
+        replaceMessage(loadingNode, '응답 없음');
+        console.error('Chat API JSON parse error', raw);
+        return;
+      }
+      const botReply = data && (data.answer ?? '응답 없음');
+      replaceMessage(loadingNode, String(botReply));
+    } catch (e) {
+      console.error(e);
+      replaceMessage(loadingNode, `요청 실패: ${e}`);
+    }
+  }
+
+  // --- 전송 동작 ---
+  formEl.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const text = (inputEl.value || '').trim();
+    if (!text) return;
+    appendMessage(text, 'user');
+    inputEl.value = '';
+    askBot(text);
+  });
+
+  // 단축키: Ctrl/Cmd+Shift+K 로 열기
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'k') {
+      if (wrap.classList.contains('open')) close(); else open();
+    }
+  });
+})();
