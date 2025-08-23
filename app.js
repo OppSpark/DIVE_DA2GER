@@ -90,9 +90,9 @@ function normalizeHouseType(t='') {
 function riskLevelFromScore(s01) {
   // s01: 0~1 범위 가정
   const x = Number(s01) || 0;
-  if (x >= 0.66) return '높음';
-  if (x >= 0.33) return '보통';
-  return '낮음';
+  if (x >= 0.148) return '매우 높음';
+  if (x >= 0.074) return '보통';
+  return '보통';
 }
 
 // ====== 위험도 계산(기존 로직 확장 유지) ======
@@ -172,6 +172,7 @@ async function loadData() {
     });
 
   // 재개발 데이터
+  // 재개발 데이터
   const redevRaw = await fetch('redevelopment_data.json').then(r => r.json());
   redevData = redevRaw
     .filter(d => d.위도 && d.경도 && d.name)
@@ -183,6 +184,8 @@ async function loadData() {
       builder: d.builder || '',
       address: d.address || '',
       units: d.units || 0,
+      // [추가]
+      image_url: d.image_url || ''
     }));
 
   renderAll();
@@ -198,6 +201,10 @@ function renderAll() {
   const q = (searchBox.value || '').trim();
   const stageSel = stageFilter.value;
 
+  // [추가] 각 탭 리스트에 뿌릴 임시 배열
+  const jeonseList = [];
+  const redevList = [];
+
   // 전세 마커
   jeonseData.forEach(b => {
     if (q && !(b.name || '').includes(q) && !(b.full_address || '').includes(q)) return;
@@ -209,12 +216,22 @@ function renderAll() {
     marker.on('click', () => selectJeonse(marker, b));
     jeonseMarkers.addLayer(marker);
     markerById.jeonse.set(b.id, marker);
+
+    // [추가]
+    jeonseList.push(b);
   });
+
+  // [추가] 단계 매칭 유틸 (부분일치 + 다중 키워드 대응)
+  const matchesStage = (stageText='', sel='ALL') => {
+    if (sel === 'ALL') return true;
+    const keys = sel.split('/');         // "건축심의/통합심의" 대응
+    return keys.some(k => stageText.includes(k));
+  };
 
   // 재개발 마커
   redevData.forEach(r => {
     if (q && !(r.name || '').includes(q) && !(r.address || '').includes(q)) return;
-    if (stageSel !== 'ALL' && (r.stage || '') !== stageSel) return;
+    if (!matchesStage(String(r.stage || ''), stageSel)) return;
 
     const marker = L.circleMarker([r.lat, r.lng], {
       radius: 8, weight: 1, color: '#0f766e', fillColor: stageColor(r.stage), fillOpacity: 0.8
@@ -223,7 +240,13 @@ function renderAll() {
     marker.on('click', () => selectRedev(marker, r));
     redevMarkers.addLayer(marker);
     markerById.redev.set(r.id, marker);
+
+    // [추가]
+    redevList.push(r);
   });
+
+  // [추가] 현재 탭에 맞춰 리스트 갱신
+  renderList(currentTab === 'jeonse' ? jeonseList : redevList);
 }
 
 function renderList(items) {
@@ -433,7 +456,7 @@ function updateRightPanelJeonse(b) {
       const res = calcRisk(currentData, senior_m, endYM);
       outputEl.innerHTML = `
         <div id="risk-result" style="background:#fff8f8;border:1px solid #ffd3d3;padding:10px;border-radius:8px;">
-          <div style="font-weight:700;margin-bottom:6px">[임시 계산] 위험도 점수: ${res.score} / 100</div>
+          <div style="font-weight:700;margin-bottom:6px">[임시 계산] 위험 확롤: ${res.score} % </div>
           <div>위험 수준: <span class="level-${res.level}">${res.level}</span></div>
           <div style="margin-top:10px;color:#c00">⚠ 서버 응답 오류로 임시 계산식을 사용했습니다.${errMsg ? `<br>${String(errMsg).replace(/</g,'&lt;')}` : ''}</div>
         </div>
@@ -483,7 +506,7 @@ function updateRightPanelJeonse(b) {
 
       outputEl.innerHTML = `
         <div id="risk-result" style="background:#f7fbff;border:1px solid #dceeff;padding:10px;border-radius:8px;">
-          <div style="font-weight:700;margin-bottom:6px">위험도 점수: <span id="risk-score">${score100}</span> / 100</div>
+          <div style="font-weight:700;margin-bottom:6px">위험 확률: <span id="risk-score">${score100}</span> % </div>
           <div style="margin-bottom:12px">위험 수준: <span class="level-${level}">${level}</span></div>
           <div style="text-align:left;white-space:pre-wrap">${String(explanation)}</div>
         </div>
@@ -502,21 +525,34 @@ function updateRightPanelJeonse(b) {
 }
 
 function updateRightPanelRedev(r) {
+  // [추가] 안전한 이미지 태그 만들기
+  const hasImg = r.image_url && !/\/$|null$/i.test(r.image_url);
+  const imgTag = hasImg
+    ? `<img class="card-img" src="${r.image_url}" alt="${r.name}" loading="lazy"
+         referrerpolicy="no-referrer"
+         onerror="this.onerror=null;this.src='https://via.placeholder.com/640x360?text=%EA%B7%B8%EB%A6%BC+%EC%97%86%EC%9D%8C';">`
+    : `<div class="card-img"></div>`;
+
   rightPanel.innerHTML = `
-    <h3>${r.name}</h3>
-    <p class="address">${r.address || ''}</p>
-    <div class="details">
-      <div class="info-item">
-        <label>단계</label>
-        <input class="readonly-input" value="${r.stage || '-'}" readonly />
-      </div>
-      <div class="info-item">
-        <label>시공</label>
-        <input class="readonly-input" value="${r.builder || '-'}" readonly />
-      </div>
-      <div class="info-item">
-        <label>세대수</label>
-        <input class="readonly-input" value="${r.units ? r.units.toLocaleString() + '세대' : '-'}" readonly />
+    <div class="card">
+      ${imgTag}
+      <div class="card-body">
+        <h3>${r.name}</h3>
+        <p class="address">${r.address || ''}</p>
+        <div class="details">
+          <div class="info-item">
+            <label>단계</label>
+            <input class="readonly-input" value="${r.stage || '-'}" readonly />
+          </div>
+          <div class="info-item">
+            <label>시공</label>
+            <input class="readonly-input" value="${r.builder || '-'}" readonly />
+          </div>
+          <div class="info-item">
+            <label>세대수</label>
+            <input class="readonly-input" value="${r.units ? r.units.toLocaleString() + '세대' : '-'}" readonly />
+          </div>
+        </div>
       </div>
     </div>
   `;
