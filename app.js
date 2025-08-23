@@ -38,6 +38,15 @@ function formatPrice(won) {
   if (man > 0) s += `${man.toLocaleString()}만원`;
   return s || '0원';
 }
+function formatPriceForInput(won) {
+    if (!won || isNaN(won) || won <= 0) return '';
+    const eok = Math.floor(won / 1e8);
+    const man = Math.round((won % 1e8) / 1e4);
+    let s = '';
+    if (eok > 0) s += `${eok}억 `;
+    if (man > 0) s += `${man.toLocaleString()}만원`;
+    return s.trim() || '0원';
+}
 function ymNow() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
@@ -106,13 +115,14 @@ L.Control.Legend = L.Control.extend({
 
 // ====== 데이터 로딩 ======
 async function loadData() {
-  // 전세 데이터(위도/경도/단지명/매매가/보증금/공시지가 등 — 스키마는 기존 JSON을 그대로 사용)
+  // 전세 데이터
   const jeonseRaw = await fetch('jeonse_data.json').then(r => r.json());
   jeonseData = jeonseRaw
     .filter(d => d.위도 && d.경도 && d['주택매매가격(원)'])
     .map((d, i) => {
       const trade = d['주택매매가격(원)'];
       const deposit = d['보증금(원)'];
+      const contract = (d.계약기간 || '').split('~');
       return {
         id: i,
         lat: d.위도, lng: d.경도,
@@ -122,11 +132,16 @@ async function loadData() {
         deposit_won: deposit,
         gongsi_price_won: d['공시지가(원)'],
         trade_price_m: trade / 1e8,
-        deposit_m: deposit / 1e8
+        deposit_m: deposit / 1e8,
+        dong: d.동,
+        cheung: d.층,
+        hosu: d.호수,
+        start_ym: contract[0] ? contract[0].trim().replace(/(\d{4})(\d{2})/, '$1-$2') : '',
+        end_ym: contract[1] ? contract[1].trim().replace(/(\d{4})(\d{2})/, '$1-$2') : ''
       };
     });
 
-  // 재개발 데이터(name, address, stage, builder, units, image_url, 위경도)
+  // 재개발 데이터
   const redevRaw = await fetch('redevelopment_data.json').then(r => r.json());
   redevData = redevRaw
     .filter(d => d.위도 && d.경도 && d.name)
@@ -241,7 +256,6 @@ function renderAll() {
   let list = [];
 
   if (currentTab === 'jeonse') {
-    // 필터링
     list = jeonseData.filter(b => {
       if (!q) return true;
       const s = `${b.name||''} ${b.full_address||''} ${b.type||''}`.toLowerCase();
@@ -269,7 +283,6 @@ function selectJeonse(marker, b) {
   selectedMarker = marker;
   marker.setStyle({ color: 'red', fillColor: 'red', radius: 10, fillOpacity: 1 });
 
-  // 영향 반경 600m
   impactCircle = L.circle([b.lat, b.lng], { radius: 600, color: '#2563eb', weight: 1, fillOpacity: 0.05 });
   impactCircle.addTo(map);
 
@@ -298,7 +311,6 @@ function highlightListItem(id) {
   }
 }
 
-// 렌더 시 리스트 DOM에 id 주입
 const _origRenderList = renderList;
 renderList = function(items) {
   leftPanel.innerHTML = '';
@@ -344,7 +356,6 @@ renderList = function(items) {
 
 // ====== 우측 패널 ======
 function updateRightPanelJeonse(b) {
-  // 근처 재개발(600m)
   const nearby = redevData
     .map(r => ({ r, dist: haversine(b.lat, b.lng, r.lat, r.lng) }))
     .filter(x => x.dist <= 600)
@@ -356,18 +367,48 @@ function updateRightPanelJeonse(b) {
     <p class="address">${b.full_address || ''}</p>
 
     <div class="details">
-      <p>주택 유형: <span>${b.type || '-'}</span></p>
-      <p>매매가: <span>${formatPrice(b.trade_price_won)}</span></p>
-      <p>전세 보증금: <span>${formatPrice(b.deposit_won)}</span></p>
-      <p>공시지가: <span>${formatPrice(b.gongsi_price_won)}</span></p>
+      <div class="info-item">
+        <label>주택 유형</label>
+        <input type="text" value="${b.type || '-'}" readonly class="readonly-input">
+      </div>
+      <div id="dong-cheung-hosu" class="${b.type === '단독주택' ? 'hidden' : ''}">
+        <div class="info-item"><label>동</label><input type="text" id="dong" value="${b.dong || ''}"></div>
+        <div class="info-item"><label>층</label><input type="text" id="cheung" value="${b.cheung || ''}"></div>
+        <div class="info-item"><label>호수</label><input type="text" id="hosu" value="${b.hosu || ''}"></div>
+      </div>
+      <div class="info-item">
+        <label for="trade-price-input">매매가 (원)</label>
+        <div class="price-input-wrapper">
+          <input type="number" id="trade-price-input" value="${b.trade_price_won || ''}">
+          <span class="price-display" id="trade-price-display"></span>
+        </div>
+      </div>
+      <div class="info-item">
+        <label for="deposit-input">전세 보증금 (원)</label>
+        <div class="price-input-wrapper">
+          <input type="number" id="deposit-input" value="${b.deposit_won || ''}">
+          <span class="price-display" id="deposit-display"></span>
+        </div>
+      </div>
+      <div class="info-item">
+        <label for="gongsi-price-input">공시지가 (원)</label>
+        <div class="price-input-wrapper">
+          <input type="number" id="gongsi-price-input" value="${b.gongsi_price_won || ''}">
+          <span class="price-display" id="gongsi-price-display"></span>
+        </div>
+      </div>
     </div>
 
     <div class="risk-calculator">
       <h4>위험도 직접 계산</h4>
       <label for="senior-input">선순위 채권 금액 (만원)</label>
       <input type="number" id="senior-input" placeholder="예: 5000">
+      
+      <label for="start-date-input">보증 시작일</label>
+      <input type="month" id="start-date-input" value="${b.start_ym || ymNow()}">
       <label for="end-date-input">보증 만료일</label>
-      <input type="month" id="end-date-input">
+      <input type="month" id="end-date-input" value="${b.end_ym || ''}">
+      
       <button id="calc-btn">위험도 계산</button>
       <div class="risk-result" id="risk-output" style="display:none;"></div>
     </div>
@@ -389,12 +430,27 @@ function updateRightPanelJeonse(b) {
     </div>
   `;
 
+  ['trade-price', 'deposit', 'gongsi-price'].forEach(id => {
+    const input = document.getElementById(`${id}-input`);
+    const display = document.getElementById(`${id}-display`);
+    const updateDisplay = () => display.textContent = formatPriceForInput(+input.value);
+    input.addEventListener('input', updateDisplay);
+    updateDisplay();
+  });
+
   document.getElementById('calc-btn').addEventListener('click', () => {
+    const currentData = {
+        ...b,
+        trade_price_won: +document.getElementById('trade-price-input').value,
+        deposit_won: +document.getElementById('deposit-input').value,
+        trade_price_m: (+document.getElementById('trade-price-input').value) / 1e8,
+        deposit_m: (+document.getElementById('deposit-input').value) / 1e8,
+    };
     const seniorMan = parseFloat(document.getElementById('senior-input').value) || 0;
     const endYM = document.getElementById('end-date-input').value;
     if (!endYM) return alert('보증 만료일을 선택해주세요.');
-    const senior_m = seniorMan * 10000 / 100000000; // 만원 → 억
-    const res = calcRisk(b, senior_m, endYM);
+    const senior_m = seniorMan * 10000 / 100000000;
+    const res = calcRisk(currentData, senior_m, endYM);
 
     const outputEl = document.getElementById('risk-output');
     outputEl.style.display = 'block';
@@ -419,7 +475,7 @@ function updateRightPanelRedev(r) {
         <p>
           <span class="chip stage" style="background:${stageColor(r.stage)}">${r.stage || '-'}</span>
           <span class="chip">${r.builder || '-'}</span>
-          ${r.units ? `<span class="chip">${(r.units+'').replace(/\B(?=(\d{3})+(?!\d))/g, ',')}세대</span>` : ''}
+          ${r.units ? `<span class="chip">${(r.units+'').replace(/\B(?=(\d{3})+(?!\d))/g, ',')}세대</span>`:''}
         </p>
         <p class="meta">위치: ${r.address || '-'}</p>
       </div>

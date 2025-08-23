@@ -129,17 +129,39 @@ main.container {
   justify-content: space-between;
   font-size: 0.95em;
 }
-.details p:last-child { margin-bottom: 0; }
-.details span { font-weight: bold; }
+.details p:last-child {
+  margin-bottom: 0;
+}
+.details span {
+  font-weight: bold;
+}
+
+.info-item {
+  margin-bottom: 15px;
+}
+.info-item label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+.info-item input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 
 /* 위험도 계산기 스타일 */
 .risk-calculator {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
 }
 .risk-calculator h4 {
-    margin-top: 0;
+  margin-top: 0;
 }
 .risk-calculator label {
   display: block;
@@ -148,46 +170,58 @@ main.container {
 }
 .risk-calculator input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
   box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 .risk-calculator button {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #28a745;
+  color: white;
   border: none;
   border-radius: 8px;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
+  font-size: 1em;
   cursor: pointer;
-  margin-top: 20px;
   transition: background-color 0.2s;
 }
 .risk-calculator button:hover {
-  background-color: #0056b3;
+  background-color: #218838;
 }
-.risk-result {
-  margin-top: 16px;
+
+#risk-result {
+  margin-top: 20px;
   padding: 15px;
-  background: #e9f7fd;
-  border: 1px solid #b3e0f2;
   border-radius: 8px;
   text-align: center;
+  font-size: 1.1em;
 }
-.risk-result b { font-size: 18px; }
-.level-높음 { color: red; font-weight: bold; }
-.level-보통 { color: orange; font-weight: bold; }
-.level-낮음 { color: green; font-weight: bold; }
-/* ====== 탭/필터/칩/범례 추가 스타일 ====== */
-.tabs { display:flex; gap:8px; margin-bottom:10px; }
+#risk-score { font-weight: bold; }
+
+/* 탭 스타일 */
+.tabs {
+  display: flex;
+  margin-bottom: 15px;
+}
 .tab {
-  flex:1; padding:10px; border:1px solid #ddd; background:#fff; cursor:pointer;
-  border-radius:8px; font-weight:600;
+  flex: 1;
+  padding: 12px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  color: #555;
+  transition: all 0.2s;
 }
-.tab.active { background:#e8f1ff; border-color:#99c2ff; color:#0b5bd3; }
+.tab:first-child { border-radius: 8px 0 0 8px; border-right:none; }
+.tab:last-child { border-radius: 0 8px 8px 0; }
+.tab.active { background-color: #007bff; color: white; border-color: #007bff; }
+.tab:not(.active):hover { background-color: #e9e9e9; }
 
 #filters { margin-top:10px; }
 #filters select { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; }
@@ -210,9 +244,58 @@ main.container {
   background:#fff; border:1px solid #ddd; border-radius:10px; padding:10px 12px;
   font:12px/1.2 system-ui; box-shadow:0 2px 6px rgba(0,0,0,0.06);
 }
-.legend .row { display:flex; align-items:center; gap:8px; margin:4px 0; }
-.legend .dot { width:10px; height:10px; border-radius:50%; border:1px solid rgba(0,0,0,0.2); }
+.legend .row { display:flex; align-items:center; margin-bottom:4px; }
+.legend .row:last-child { margin-bottom:0; }
+.legend .dot {
+  display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:8px;
+}
 
-.list-item .sub { color:#6a6a6a; font-size:12px; margin-top:4px; }
-.distance { font-weight:700; }
+/* ====== 요청 기능 추가 스타일 (이 코드만 기존 CSS 파일 맨 아래에 붙여넣기) ====== */
+.info-item {
+  margin-bottom: 15px;
+}
+.info-item:last-child {
+  margin-bottom: 0;
+}
+.info-item label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+  font-size: 14px;
+}
+.info-item input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
+.readonly-input {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  color: #555;
+}
+
+.price-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.price-input-wrapper input {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.price-display {
+  font-weight: bold;
+  color: #007bff;
+  white-space: nowrap;
+  font-size: 0.9em;
+}
+
+.nearby-redev h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
