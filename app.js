@@ -5,6 +5,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
+// ====== API 기본 엔드포인트(폴백) ======
+const PREDICT_URL_DEFAULT = 'https://divepredictmodel-gfe8aeadgehfh9gh.koreacentral-01.azurewebsites.net/predict_and_explain';
+
 // ====== 전역 상태 & UI 엘리먼트 ======
 const leftPanel = document.getElementById('list-container');
 const rightPanel = document.getElementById('right-panel');
@@ -39,13 +42,13 @@ function formatPrice(won) {
   return s || '0원';
 }
 function formatPriceForInput(won) {
-    if (!won || isNaN(won) || won <= 0) return '';
-    const eok = Math.floor(won / 1e8);
-    const man = Math.round((won % 1e8) / 1e4);
-    let s = '';
-    if (eok > 0) s += `${eok}억 `;
-    if (man > 0) s += `${man.toLocaleString()}만원`;
-    return s.trim() || '0원';
+  if (!won || isNaN(won) || won <= 0) return '';
+  const eok = Math.floor(won / 1e8);
+  const man = Math.round((won % 1e8) / 1e4);
+  let s = '';
+  if (eok > 0) s += `${eok}억 `;
+  if (man > 0) s += `${man.toLocaleString()}만원`;
+  return s.trim() || '0원';
 }
 function ymNow() {
   const d = new Date();
@@ -75,13 +78,18 @@ function extractSido(addr='') {
   const first = String(addr).trim().split(/\s+/)[0] || '';
   return first || '부산광역시';
 }
+function simplifySido(s='') {
+  // '인천광역시' -> '인천', '경기도' -> '경기'
+  return String(s).replace(/(특별시|광역시|특별자치시|특별자치도|자치시|자치도|도)$/,'');
+}
 function normalizeHouseType(t='') {
   if (String(t).includes('오피스텔')) return '오피스텔';
   if (String(t).includes('아파트')) return '아파트';
   return t || '아파트';
 }
-function riskLevelFromScore(s) {
-  const x = Number(s) || 0;
+function riskLevelFromScore(s01) {
+  // s01: 0~1 범위 가정
+  const x = Number(s01) || 0;
   if (x >= 0.66) return '높음';
   if (x >= 0.33) return '보통';
   return '낮음';
@@ -94,7 +102,7 @@ function calcRisk(b, senior_m, endYM) {
   const SR = clamp((senior_m || 0) / b.trade_price_m, 0, 1);
   const months = monthsBetween(ymNow(), endYM);
   const periodRisk = 1 - clamp(months / 36, 0, 1);
-  const score = Math.round(40*LTV + 30*JR + 20*SR + 10*periodRisk);
+  const score = Math.round(40*LTV + 30*JR + 20*SR + 10*periodRisk); // 0~100
   let level = '낮음';
   if (score >= 60) level = '높음';
   else if (score >= 30) level = '보통';
@@ -395,17 +403,18 @@ function updateRightPanelJeonse(b) {
     if (!startYM || !endYM) return alert('보증 시작/만료월을 선택해주세요.');
 
     const seniorWon = Math.round(seniorMan * 10000); // 만원 -> 원
-    const sido = extractSido(b.full_address || '');
+    const sidoFull = extractSido(b.full_address || '');
+    const sidoSimple = simplifySido(sidoFull);
     const houseType = normalizeHouseType(b.type || '');
 
     const payload = {
       "보증시작월":  toYYYYMM(startYM),
-      "보증만료월":  toYYYYMM(endYM),
-      "주택가격":    tradePriceWon,
+      "보증완료월":  toYYYYMM(endYM),
+      "주택가액":    tradePriceWon,
       "임대보증금액": depositWon,
       "선순위":      seniorWon,
-      "시도":        sido,
-      "주택구분":    houseType
+      "시도":        sidoSimple, // 예: '인천'
+      "주택구분":    houseType   // 예: '오피스텔'
     };
 
     const outputEl = document.getElementById('risk-output');
@@ -423,10 +432,10 @@ function updateRightPanelJeonse(b) {
       const senior_m = seniorWon / 1e8;
       const res = calcRisk(currentData, senior_m, endYM);
       outputEl.innerHTML = `
-        <div id="risk-result" style="background:#fff8f8;border:1px solid #ffd3d3">
+        <div id="risk-result" style="background:#fff8f8;border:1px solid #ffd3d3;padding:10px;border-radius:8px;">
           <div style="font-weight:700;margin-bottom:6px">[임시 계산] 위험도 점수: ${res.score} / 100</div>
           <div>위험 수준: <span class="level-${res.level}">${res.level}</span></div>
-          <div style="margin-top:10px;color:#c00">⚠ 서버 응답 오류로 임시 계산식을 사용했습니다.${errMsg ? `<br>${errMsg}` : ''}</div>
+          <div style="margin-top:10px;color:#c00">⚠ 서버 응답 오류로 임시 계산식을 사용했습니다.${errMsg ? `<br>${String(errMsg).replace(/</g,'&lt;')}` : ''}</div>
         </div>
       `;
       if (selectedMarker) {
@@ -437,29 +446,46 @@ function updateRightPanelJeonse(b) {
     };
 
     try {
-      if (!window.CONFIG || !window.CONFIG.PREDICT_URL) {
-        throw new Error('API 주소가 설정되지 않았습니다. (config.js 확인)');
-      }
-      const res = await fetch(window.CONFIG.PREDICT_URL, {
+      // CONFIG 없으면 폴백 사용
+      const endpoint = (window.CONFIG?.PREDICT_URL) ?? PREDICT_URL_DEFAULT;
+
+      const res = await fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
+        headers: { 'Content-Type': 'application/json' }, // Accept 생략 가능
+        body: JSON.stringify(payload),
+        cache: 'no-store'
       });
 
-      if (!res.ok) throw new Error(`API 오류: ${res.status}`);
-      const data = await res.json();
-      const score01 = typeof data.risk_score === 'number' ? data.risk_score : 0;
-      const level   = riskLevelFromScore(score01);
-      const score100 = Math.round(score01 * 100);
+      const rawText = await res.text();
+      if (!res.ok) {
+        throw new Error(`API 오류: ${res.status} ${res.statusText}\n${rawText}`);
+      }
+
+      let data;
+      try { data = JSON.parse(rawText); }
+      catch {
+        throw new Error(`JSON 파싱 실패: ${rawText.slice(0, 300)}`);
+      }
+
+      // 서버가 주는 스코어 키 유연 처리
+      let score = (typeof data.risk_score === 'number') ? data.risk_score
+                : (typeof data.score === 'number') ? data.score
+                : (typeof data['위험도'] === 'number') ? data['위험도']
+                : (typeof data.riskScore === 'number') ? data.riskScore
+                : 0;
+
+      // 0~1 또는 0~100 모두 대응
+      const score100 = (score <= 1) ? Math.round(score * 100) : Math.round(score);
+      const score01  = (score <= 1) ? score : (score / 100);
+      const level    = riskLevelFromScore(score01);
+
+      const explanation = (data.ai_explanation || data.explanation || data['설명'] || '');
 
       outputEl.innerHTML = `
-        <div id="risk-result" style="background:#f7fbff;border:1px solid #dceeff">
+        <div id="risk-result" style="background:#f7fbff;border:1px solid #dceeff;padding:10px;border-radius:8px;">
           <div style="font-weight:700;margin-bottom:6px">위험도 점수: <span id="risk-score">${score100}</span> / 100</div>
           <div style="margin-bottom:12px">위험 수준: <span class="level-${level}">${level}</span></div>
-          <div style="text-align:left;white-space:pre-wrap">${data.ai_explanation || ''}</div>
+          <div style="text-align:left;white-space:pre-wrap">${String(explanation)}</div>
         </div>
       `;
 
@@ -498,7 +524,12 @@ function updateRightPanelRedev(r) {
 
 function clearSelection() {
   if (selectedMarker) {
-    selectedMarker.setStyle({ color: '#1d4ed8', fillColor: selectedMarker.options.originalColor || '#3b82f6', radius: 8, fillOpacity: 0.7 });
+    selectedMarker.setStyle({
+      color: '#1d4ed8',
+      fillColor: selectedMarker.options.originalColor || '#3b82f6',
+      radius: 8,
+      fillOpacity: 0.7
+    });
     selectedMarker = null;
   }
   if (impactCircle) {
