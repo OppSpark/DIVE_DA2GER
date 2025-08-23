@@ -716,6 +716,6 @@ loadData().catch(err => {
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'k') {
       if (wrap.classList.contains('open')) close(); else open();
     }
-    appendMessage('안녕하세요. 안심보증 챗봇이에요! 무엇을 도와드릴까요? 임대차계약에서 사용되는 용어부터 법률 정보까지 무엇이든 물어보세요!', 'bot');
+    appendMessage('안녕하세요. 안심전세 챗봇이에요! 무엇을 도와드릴까요? 임대차계약에서 사용되는 용어부터 법률 정보까지 무엇이든 물어보세요!', 'bot');
   });
 })();
